@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { FlatList, Text } from 'react-native';
 import { TabBar, TabViewAnimated, TabViewPagerPan } from 'react-native-tab-view';
+import { List } from '../components';
 import styles from '../styles/list-container';
 
 export default class ListContainer extends PureComponent {
@@ -45,15 +46,7 @@ export default class ListContainer extends PureComponent {
 
     renderScene({ route }) {
         const listData = this.props.list.filter(task => task.list === route.key);
-
-        return (
-            <FlatList
-                data={listData}
-                removeClippedSubviews={false}
-                keyExtractor={(item, index) => `${item.name}_${index}`}
-                renderItem={({item}) => <Text>{item.name}</Text>}
-            />
-        );
+        return <List data={listData} />;
     }
 
     render() {
