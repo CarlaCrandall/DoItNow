@@ -4,3 +4,10 @@ export const ADD_TASK = (task) => {
         task
     };
 };
+
+export const SET_ACTIVE_LIST = (listId) => {
+    return {
+        type: 'SET_ACTIVE_LIST',
+        listId
+    };
+};

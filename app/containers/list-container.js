@@ -9,7 +9,7 @@ export default class ListContainer extends PureComponent {
         super(props);
 
         this.state = {
-            index: 0,
+            index: props.listId,
             routes: [
                 { key: 'now', title: 'Now' },
                 { key: 'later', title: 'Later' },
@@ -18,8 +18,14 @@ export default class ListContainer extends PureComponent {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.listId !== this.props.listId) {
+            this.setState({ index: nextProps.listId });
+        }
+    }
+
     handleChangeTab(index) {
-        this.setState({ index });
+        this.props.SET_ACTIVE_LIST(index);
     }
 
     renderPager(props) {

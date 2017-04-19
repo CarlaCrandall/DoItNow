@@ -15,7 +15,7 @@ class AppContainer extends Component {
     	const { tasks, ...actionProps } = this.props;
         return (
             <View style={styles.container}>
-            	<ListContainer list={tasks.list} />
+            	<ListContainer {...tasks} {...actionProps} />
             </View>
         );
     }

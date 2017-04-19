@@ -5,7 +5,8 @@ const initialState = {
         { name: 'Task2', list: 'later' },
         { name: 'Task3', list: 'someday' },
         { name: 'Task5', list: 'later' },
-    ]
+    ],
+    listId: 0
 };
 
 const tasks = (state = initialState, action) => {
@@ -15,6 +16,13 @@ const tasks = (state = initialState, action) => {
             return {
                 ...state,
                 list: [...state.list, action.task]
+            };
+        }
+
+        case 'SET_ACTIVE_LIST': {
+            return {
+                ...state,
+                listId: action.listId
             };
         }
 
