@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import {
     Text,
     TouchableHighlight,
     View
 } from 'react-native';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { ListContainer } from './';
 import * as actions from '../actions';
 import styles from '../styles/app-container';
 
 class AppContainer extends Component {
     render() {
+    	const { tasks, ...actionProps } = this.props;
         return (
             <View style={styles.container}>
-				<Text>{this.props.tasks.list.length}</Text>
-                <TouchableHighlight onPress={() => this.props.ADD_TASK('some task')}>
-                	<Text>Add Task</Text>
-                </TouchableHighlight>
+            	<ListContainer list={tasks.list} />
             </View>
         );
     }

@@ -1,5 +1,11 @@
 const initialState = {
-    list: []
+    list: [
+        { name: 'Task1', list: 'now' },
+        { name: 'Task4', list: 'now' },
+        { name: 'Task2', list: 'later' },
+        { name: 'Task3', list: 'someday' },
+        { name: 'Task5', list: 'later' },
+    ]
 };
 
 const tasks = (state = initialState, action) => {
