@@ -1,14 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { AppRegistry } from 'react-native';
-import { AppContainer } from './app/containers';
+import App from './app/app';
 import store from './app/store';
 
 
-const App = () => (
+const DoItNow = () => (
     <Provider store={store}>
-        <AppContainer />
+        <App />
     </Provider>
 );
 
-AppRegistry.registerComponent('DoItNow', () => App);
+AppRegistry.registerComponent('DoItNow', () => DoItNow);

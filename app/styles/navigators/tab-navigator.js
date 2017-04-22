@@ -2,9 +2,6 @@ import { StyleSheet } from 'react-native';
 import { colors, fontWeights, margins } from '../vars';
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
 	tabbar: {
 		backgroundColor: colors.white
 	},
@@ -12,12 +9,7 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.darkGray
 	},
 	label: {
-		padding: margins.xsmall,
-		fontWeight: fontWeights.bold,
-		color: '#7f8c8d'
-	},
-	'label--active': {
-		color: colors.darkGray
+		fontWeight: fontWeights.bold
 	}
 });
 
