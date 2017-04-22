@@ -1,10 +1,10 @@
 const initialState = {
     list: [
-        { name: 'Task1', list: 'now' },
-        { name: 'Task4', list: 'now' },
-        { name: 'Task2', list: 'later' },
-        { name: 'Task3', list: 'someday' },
-        { name: 'Task5', list: 'later' },
+        { name: 'Pay electric bill', list: 'now' },
+        { name: 'Call plumber regarding leak', list: 'now' },
+        { name: 'Schedule appointment with dentist', list: 'later' },
+        { name: 'Clean out fridge', list: 'someday' },
+        { name: 'Buy birthday present for mom', list: 'later' },
     ],
     listId: 0
 };

@@ -1,9 +1,15 @@
 import React, { PureComponent } from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList } from 'react-native';
+import { TaskCard } from './';
 
 export default class List extends PureComponent {
+
     shouldComponentUpdate() {
         return false;
+    }
+
+    renderItem({item}) {
+        return <TaskCard {...item} />
     }
 
     render() {
@@ -12,7 +18,7 @@ export default class List extends PureComponent {
                 data={this.props.data}
                 removeClippedSubviews={false}
                 keyExtractor={(item, index) => `${item.name}_${index}`}
-                renderItem={({item}) => <Text>{item.name}</Text>}
+                renderItem={item => this.renderItem(item)}
             />
         );
     }
