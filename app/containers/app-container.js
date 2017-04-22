@@ -8,13 +8,13 @@ import {
 } from 'react-native';
 import { ListContainer } from './';
 import * as actions from '../actions';
-import styles from '../styles/app-container';
+import { AppContainerStyles } from '../styles/containers';
 
 class AppContainer extends Component {
     render() {
     	const { tasks, ...actionProps } = this.props;
         return (
-            <View style={styles.container}>
+            <View style={AppContainerStyles.container}>
             	<ListContainer {...tasks} {...actionProps} />
             </View>
         );

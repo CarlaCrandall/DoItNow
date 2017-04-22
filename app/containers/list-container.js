@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
-import { FlatList, Text } from 'react-native';
+import { Animated, FlatList, Text } from 'react-native';
 import { TabBar, TabViewAnimated, TabViewPagerPan } from 'react-native-tab-view';
 import { List } from '../components';
-import styles from '../styles/list-container';
+import { ListContainerStyles } from '../styles/containers';
 
 export default class ListContainer extends PureComponent {
 
@@ -33,30 +33,30 @@ export default class ListContainer extends PureComponent {
         return <TabViewPagerPan {...props} swipeEnabled={false} />;
     }
 
-    renderHeader(props) {
-        return (
-            <TabBar
-                {...props}
-                indicatorStyle={styles.indicator}
-                labelStyle={styles.label}
-                style={styles.tabbar}
-            />
-        );
-    }
-
     renderScene({ route }) {
         const listData = this.props.list.filter(task => task.list === route.key);
         return <List data={listData} />;
     }
 
+    renderHeader(props) {
+        return (
+            <TabBar
+                {...props}
+                indicatorStyle={ListContainerStyles.indicator}
+                labelStyle={ListContainerStyles.label}
+                style={ListContainerStyles.tabbar}
+            />
+        );
+    }
+
     render() {
         return (
             <TabViewAnimated
-                style={styles.container}
+                style={ListContainerStyles.container}
                 navigationState={this.state}
                 renderPager={this.renderPager}
                 renderScene={(route) => this.renderScene(route)}
-                renderHeader={this.renderHeader}
+                renderHeader={(props) => this.renderHeader(props)}
                 onRequestChangeTab={(index) => this.handleChangeTab(index)}
             />
         );
