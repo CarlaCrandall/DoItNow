@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import * as actions from './actions';
 import { AppContainerStyles } from './styles/containers';
-import { Tabs } from './router';
+import { Stack } from './router';
 
 class App extends Component {
     render() {
     	const { tasks, ...actionProps } = this.props;
         return (
             <View style={AppContainerStyles.container}>
-            	<Tabs screenProps={{...tasks, ...actionProps}} />
+            	<Stack screenProps={{...tasks, ...actionProps}} />
             </View>
         );
     }

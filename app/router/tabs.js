@@ -1,11 +1,10 @@
 import React from 'react';
 import { TabNavigator, TabView } from 'react-navigation';
-import { Now, Later, Someday } from './screens';
-import { TabNavigatorStyles } from './styles/navigators';
-import { colors } from './styles/vars';
+import { Later, Now, Someday } from '../screens';
+import { TabNavigatorStyles } from '../styles/navigators';
+import { colors } from '../styles/vars';
 
-
-export const Tabs = TabNavigator({
+const Tabs = TabNavigator({
 	Now: { screen: Now },
 	Later: { screen: Later },
 	Someday: { screen: Someday }
@@ -22,3 +21,5 @@ export const Tabs = TabNavigator({
 		style: TabNavigatorStyles.tabbar
 	}
 });
+
+export default Tabs;
