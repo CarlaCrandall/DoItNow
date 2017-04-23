@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View } from 'react-native';
 import * as actions from './actions';
 import { AppContainerStyles } from './styles/containers';
 import { Stack } from './router';
