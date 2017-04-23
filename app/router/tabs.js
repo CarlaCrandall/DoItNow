@@ -10,7 +10,7 @@ const Tabs = TabNavigator({
 	Someday: { screen: Someday }
 },{
 	animationEnabled: true,
-	lazyLoad: true,
+	swipeEnabled: false,
 	tabBarComponent: TabView.TabBarTop,
 	tabBarPosition: 'top',
 	tabBarOptions: {
