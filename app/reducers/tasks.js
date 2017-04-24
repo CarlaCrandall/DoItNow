@@ -19,13 +19,6 @@ const tasks = (state = initialState, action) => {
             };
         }
 
-        case 'SET_ACTIVE_LIST': {
-            return {
-                ...state,
-                listId: action.listId
-            };
-        }
-
         default: {
             return state;
         }
