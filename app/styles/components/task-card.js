@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fontSizes, margins } from '../vars';
+import { colors, fontSizes, fontWeights, margins } from '../vars';
 
 const TaskCardStyles = StyleSheet.create({
 	taskCard: {
@@ -22,6 +22,9 @@ const TaskCardStyles = StyleSheet.create({
 	text: {
 		fontSize: fontSizes.medium,
 		color: colors.white
+	},
+	swipeout: {
+		backgroundColor: colors.white
 	}
 });
 
