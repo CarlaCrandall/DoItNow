@@ -18,7 +18,7 @@ const Tabs = TabNavigator({
 		inactiveTintColor: colors.lightGray,
 		indicatorStyle: TabNavigatorStyles.indicator,
 		labelStyle: TabNavigatorStyles.label,
-		style: TabNavigatorStyles.tabbar
+		style: TabNavigatorStyles.tabBar
 	}
 });
 

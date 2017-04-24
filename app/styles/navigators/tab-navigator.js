@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { colors, fontWeights, margins } from '../vars';
 
 const styles = StyleSheet.create({
-	tabbar: {
+	tabBar: {
 		backgroundColor: colors.white
 	},
 	indicator: {
