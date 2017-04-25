@@ -24,6 +24,9 @@ const TaskCardStyles = StyleSheet.create({
 	'swipeText--complete': {
 		color: colors.green
 	},
+	'swipeText--uncheck': {
+		color: colors.green
+	},
 
 	// ICON STYLES
 	swipeIcon: {
@@ -36,6 +39,9 @@ const TaskCardStyles = StyleSheet.create({
 		color: colors.red
 	},
 	'swipeIcon--complete': {
+		color: colors.green
+	},
+	'swipeIcon--uncheck': {
 		color: colors.green
 	}
 });

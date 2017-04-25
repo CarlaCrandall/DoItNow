@@ -5,16 +5,13 @@ const ExpandableListStyles = StyleSheet.create({
 	view: {
 		height: 52,
 		marginTop: margins.medium,
-		marginBottom: margins.medium,
-		marginLeft: margins.small,
-		marginRight: margins.small
+		marginBottom: margins.medium
 	},
 	'view--expanded': {
 		height: null
 	},
 	button: {
-		paddingTop: margins.small,
-		paddingBottom: margins.small,
+		padding: margins.small,
 		backgroundColor: colors.white
 	},
 	icon: {

@@ -16,17 +16,20 @@ export default class TaskCard extends PureComponent {
 	}
 
     render() {
-    	const cardStyles = [
-    		TaskCardStyles.taskCard,
-    		TaskCardStyles[`taskCard--${this.props.list}`],
-    		TaskCardStyles[`taskCard--${this.props.status}`]
-    	];
+    	const
+	    	cardStyles = [
+	    		TaskCardStyles.taskCard,
+	    		TaskCardStyles[`taskCard--${this.props.list}`],
+	    		TaskCardStyles[`taskCard--${this.props.status}`]
+	    	],
+	    	toggleAction = this.props.status === 'active' ? 'complete' : 'uncheck',
+			toggleIcon = this.props.status === 'active' ? 'check' : 'check-circle-o';
 
         return (
 			<SwipeoutExtended
 				left={[
 					{
-						component: this.renderButton('complete', 'check'),
+						component: this.renderButton(toggleAction, toggleIcon),
 						onPress: () => this.props.TOGGLE_TASK(this.props.id)
 					},
 					{ component: this.renderButton() }
