@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { List } from '../components';
+import { TaskCategory } from '../components';
 
 export default class Now extends Component {
     render() {
         const
-			list = this.props.screenProps.list,
+			{ list, ...actionProps } = this.props.screenProps,
         	listData = list.filter(task => task.list === 'now');
 
-        return <List data={listData} />;
+        return <TaskCategory data={listData} {...actionProps} />;
     }
 }
