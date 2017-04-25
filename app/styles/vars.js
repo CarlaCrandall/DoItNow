@@ -20,6 +20,12 @@ export const fontWeights = {
 	bold: '700'
 };
 
+export const iconSizes = {
+	small: 16,
+	medium: 20,
+	large: 24
+};
+
 export const margins = {
 	xsmall: 8,
 	small: 16,
