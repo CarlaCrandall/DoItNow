@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { Dimensions, TouchableHighlight, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { SwipeButton, SwipeoutExtended } from './';
 import { TaskCardStyles } from '../styles/components';
 import { colors } from '../styles/vars';
@@ -8,7 +7,7 @@ import { colors } from '../styles/vars';
 
 export default class TaskCard extends PureComponent {
 
-	renderButton(btnType, btnIcon) {
+	renderButton(btnType = 'cancel', btnIcon = 'ban') {
 		const btnText = btnType.charAt(0).toUpperCase() + btnType.slice(1);
 
 		return (
@@ -17,26 +16,26 @@ export default class TaskCard extends PureComponent {
 	}
 
     render() {
-    	const cardStyles = [TaskCardStyles.taskCard, TaskCardStyles[`taskCard--${this.props.list}`]];
+    	const cardStyles = [
+    		TaskCardStyles.taskCard,
+    		TaskCardStyles[`taskCard--${this.props.list}`],
+    		TaskCardStyles[`taskCard--${this.props.status}`]
+    	];
 
         return (
 			<SwipeoutExtended
 				left={[
 					{
 						component: this.renderButton('complete', 'check'),
-						onPress: () => console.log('press event')
+						onPress: () => this.props.TOGGLE_TASK(this.props.id)
 					},
-					{
-						component: this.renderButton('cancel', 'ban'),
-						onPress: () => console.log('press event')
-					}
+					{ component: this.renderButton() }
 				]}
 				right={[
-					{
-						component: this.renderButton('cancel', 'ban'),
-					},
+					{ component: this.renderButton() },
 					{
 						component: this.renderButton('delete', 'trash'),
+						onPress: () => this.props.DELETE_TASK(this.props.id)
 					}
 				]}
 				style={TaskCardStyles.swipeout}

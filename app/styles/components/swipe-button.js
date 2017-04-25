@@ -8,7 +8,7 @@ const TaskCardStyles = StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: colors.white,
 		flexWrap: 'wrap',
-        flexDirection: 'row',
+        flexDirection: 'row'
 	},
 
 	// TEXT STYLES

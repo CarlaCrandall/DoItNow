@@ -19,6 +19,9 @@ const TaskCardStyles = StyleSheet.create({
 	'taskCard--someday': {
 		backgroundColor: colors.blue
 	},
+	'taskCard--complete': {
+		backgroundColor: colors.lightGray
+	},
 	text: {
 		fontSize: fontSizes.medium,
 		color: colors.white

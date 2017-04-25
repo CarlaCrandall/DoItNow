@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { SwipeButtonStyles } from '../styles/components';
+import { iconSizes } from '../styles/vars';
 
 
 export default class SwipeButton extends PureComponent {
@@ -14,7 +15,7 @@ export default class SwipeButton extends PureComponent {
 
 		return (
 			<View style={SwipeButtonStyles.swipeBtn}>
-				<Icon name={this.props.icon} size={20} style={iconStyles} />
+				<Icon name={this.props.icon} size={iconSizes.medium} style={iconStyles} />
 				<Text style={textStyles}>{btnText}</Text>
 			</View>
 		);
