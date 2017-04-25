@@ -3,8 +3,7 @@ import { margins } from '../vars';
 
 const AppContainerStyles = StyleSheet.create({
 	container: {
-		flex: 1,
-		marginTop: margins.medium
+		flex: 1
 	}
 });
 
