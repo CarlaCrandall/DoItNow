@@ -18,14 +18,11 @@ const TaskCardStyles = StyleSheet.create({
 	'swipeText--cancel': {
 		color: colors.mediumGray
 	},
+	'swipeText--edit': {
+		color: colors.darkGray
+	},
 	'swipeText--delete': {
 		color: colors.red
-	},
-	'swipeText--complete': {
-		color: colors.green
-	},
-	'swipeText--uncheck': {
-		color: colors.green
 	},
 
 	// ICON STYLES
@@ -35,14 +32,11 @@ const TaskCardStyles = StyleSheet.create({
 	'swipeIcon--cancel': {
 		color: colors.mediumGray
 	},
+	'swipeIcon--edit': {
+		color: colors.darkGray
+	},
 	'swipeIcon--delete': {
 		color: colors.red
-	},
-	'swipeIcon--complete': {
-		color: colors.green
-	},
-	'swipeIcon--uncheck': {
-		color: colors.green
 	}
 });
 
