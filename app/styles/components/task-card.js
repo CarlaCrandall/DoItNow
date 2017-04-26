@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import { colors, fontSizes, fontWeights, margins } from '../vars';
 
 const TaskCardStyles = StyleSheet.create({
-	taskCard: {
+	row: {
 		flex: 1,
 		flexWrap: 'wrap',
         flexDirection: 'row',
@@ -13,6 +13,11 @@ const TaskCardStyles = StyleSheet.create({
 		borderBottomWidth: 0.5,
 		borderBottomColor: colors.lightGray
 	},
+	swipeout: {
+		backgroundColor: colors.white
+	},
+
+	// Text Styles
 	text: {
 		fontSize: fontSizes.medium
 	},
@@ -28,9 +33,6 @@ const TaskCardStyles = StyleSheet.create({
 	'text--complete': {
 		color: colors.mediumGray,
 		textDecorationLine: 'line-through'
-	},
-	swipeout: {
-		backgroundColor: colors.white
 	}
 });
 

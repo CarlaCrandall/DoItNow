@@ -5,8 +5,6 @@ import { TaskList } from './';
 import { ExpandableListStyles } from '../styles/components';
 import { colors, iconSizes } from '../styles/vars';
 
-UIManager.setLayoutAnimationEnabledExperimental &&
-UIManager.setLayoutAnimationEnabledExperimental(true);
 
 export default class ExpandableList extends Component {
 
