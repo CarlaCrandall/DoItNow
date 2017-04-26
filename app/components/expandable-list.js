@@ -42,7 +42,10 @@ export default class ExpandableList extends Component {
                     style={ExpandableListStyles.button}
                     onPress={() => this.toggleList()}
                 >
-                    <Text style={ExpandableListStyles.title}>{this.props.title} ({this.props.data.length})</Text>
+                    <Text style={ExpandableListStyles.title}>{this.props.title}</Text>
+                    <View style={ExpandableListStyles.badge}>
+                        <Text style={ExpandableListStyles.badgeText}>{this.props.data.length}</Text>
+                    </View>
                 </Icon.Button>
                 <TaskList
                     data={this.props.data}
