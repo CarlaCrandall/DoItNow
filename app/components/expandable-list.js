@@ -50,6 +50,7 @@ export default class ExpandableList extends Component {
                 </Icon.Button>
                 <TaskList
                     data={this.props.data}
+                    navigate={this.props.navigate}
                     DELETE_TASK={this.props.DELETE_TASK}
                     TOGGLE_TASK={this.props.TOGGLE_TASK}
                 />

@@ -29,7 +29,7 @@ export default class TaskCard extends PureComponent {
 				component: this.renderButton('cancel', 'ban')
 			}, {
 				component: this.renderButton('edit', 'pencil'),
-				onPress: () => console.log('edit event')
+				onPress: () => this.props.navigate('AddEditTask')
 			}, {
 				component: this.renderButton('delete', 'trash'),
 				onPress: () => this.props.DELETE_TASK(this.props.id)

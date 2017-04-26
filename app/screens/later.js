@@ -7,6 +7,6 @@ export default class Later extends Component {
 			{ list, ...actionProps } = this.props.screenProps,
         	listData = list.filter(task => task.list === 'later');
 
-        return <TaskCategory data={listData} {...actionProps} />;
+        return <TaskCategory data={listData} navigate={this.props.navigation.navigate} {...actionProps} />;
     }
 }
