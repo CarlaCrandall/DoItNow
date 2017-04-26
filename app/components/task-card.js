@@ -21,6 +21,11 @@ export default class TaskCard extends PureComponent {
 		Alert.alert(title, message, [cancelButton, deleteButton]);
 	}
 
+	onEdit() {
+		this.props.navigate('AddEditTask', { mode: 'edit' });
+		this.props.SWIPEOUT_TASK(null);
+	}
+
 	renderButton(btnType, btnIcon) {
 		const btnText = btnType.charAt(0).toUpperCase() + btnType.slice(1);
 
@@ -37,7 +42,7 @@ export default class TaskCard extends PureComponent {
 				component: this.renderButton('cancel', 'ban')
 			}, {
 				component: this.renderButton('edit', 'pencil'),
-				onPress: () => this.props.navigate('AddEditTask', { mode: 'edit' })
+				onPress: () => this.onEdit()
 			}, {
 				component: this.renderButton('delete', 'trash'),
 				onPress: () => this.onDelete()
