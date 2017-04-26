@@ -19,7 +19,7 @@ const ExpandableListStyles = StyleSheet.create({
 	},
 	title: {
 		color: colors.darkGray,
-		fontSize: fontSizes.small,
+		fontSize: fontSizes.medium,
 		fontWeight: fontWeights.bold
 	}
 });

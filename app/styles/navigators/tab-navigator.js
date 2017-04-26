@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fontWeights, margins } from '../vars';
+import { colors, fontSizes, fontWeights, margins } from '../vars';
 
 const styles = StyleSheet.create({
 	tabBar: {
@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.darkGray
 	},
 	label: {
-		fontWeight: fontWeights.bold
+		fontSize: fontSizes.medium,
+		fontWeight: fontWeights.normal
 	}
 });
 

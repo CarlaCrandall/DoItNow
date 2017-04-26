@@ -4,16 +4,16 @@ import { colors, fontSizes, margins } from '../vars';
 const TaskCardStyles = StyleSheet.create({
 	swipeBtn: {
 		flex: 1,
+		flexWrap: 'wrap',
+        flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: colors.white,
-		flexWrap: 'wrap',
-        flexDirection: 'row'
 	},
 
 	// TEXT STYLES
 	swipeText: {
-		fontSize: fontSizes.small
+		fontSize: fontSizes.medium
 	},
 	'swipeText--cancel': {
 		color: colors.lightGray

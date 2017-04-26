@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 	},
 	headerTitle: {
 		color: colors.white,
-		fontSize: fontSizes.medium,
+		fontSize: fontSizes.large,
 		fontWeight: fontWeights.light
 	},
 	headerButton: {

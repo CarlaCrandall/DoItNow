@@ -1,17 +1,17 @@
 export const colors = {
 	white: '#FFF',
-	lightGray: '#7F8C8D',
-	darkGray: '#2C3E50',
-	red: '#C62828',
-	orange: '#F39C12',
-	blue: '#3498DB',
+	lightGray: '#607D8B',
+	darkGray: '#37474F',
+	red: '#b71C1C',
+	orange: '#FF9800',
+	blue: '#1976D2',
 	green: '#27AE60'
 };
 
 export const fontSizes = {
-	small: 16,
-	medium: 24,
-	large: 36
+	small: 12,
+	medium: 16,
+	large: 24
 };
 
 export const fontWeights = {
