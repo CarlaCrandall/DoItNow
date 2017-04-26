@@ -18,3 +18,10 @@ export const TOGGLE_TASK = (id) => {
         id
     };
 };
+
+export const SWIPEOUT_TASK = (id) => {
+    return {
+        type: 'SWIPEOUT_TASK',
+        id
+    };
+};

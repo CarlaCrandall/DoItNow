@@ -45,12 +45,13 @@ export default class TaskCard extends PureComponent {
 
         return (
 			<SwipeoutExtended
+				rowID={this.props.id}
 				right={swipeButtons}
 				style={TaskCardStyles.swipeout}
 				buttonWidth={Dimensions.get('window').width / 3}
+				close={this.props.id !== this.props.swipeoutTask}
 				autoClose={true}
-				onOpen={() => console.log('open event')}
-				scroll={() => console.log('scroll event')}
+				onOpen={(sectionID, rowID) => this.props.SWIPEOUT_TASK(rowID)}
 			>
 				<Checkbox
 					{...this.props}

@@ -1,4 +1,5 @@
 const initialState = {
+    swipeoutTask: null,
     list: [
         { id: 0, name: 'Pay electric bill', list: 'now', status: 'complete' },
         { id: 1, name: 'Call plumber regarding leak', list: 'now', status: 'active'  },
@@ -38,6 +39,13 @@ const tasks = (state = initialState, action) => {
 
                     return { ...task, status: status }
                 })
+            }
+        }
+
+        case 'SWIPEOUT_TASK': {
+            return {
+                ...state,
+                swipeoutTask: action.id
             }
         }
 
