@@ -4,27 +4,30 @@ import { colors, fontSizes, fontWeights, margins } from '../vars';
 const TaskCardStyles = StyleSheet.create({
 	taskCard: {
 		flex: 1,
-		margin: margins.small,
-		marginBottom: 0,
+		flexWrap: 'wrap',
+        flexDirection: 'row',
+        alignItems: 'center',
 		padding: margins.small,
-		paddingBottom: margins.large,
-		borderRadius: 10
-	},
-	'taskCard--now': {
-		backgroundColor: colors.red
-	},
-	'taskCard--later': {
-		backgroundColor: colors.orange
-	},
-	'taskCard--someday': {
-		backgroundColor: colors.blue
-	},
-	'taskCard--complete': {
-		backgroundColor: colors.lightGray
+		paddingTop: margins.medium,
+		paddingBottom: margins.medium,
+		backgroundColor: colors.white,
+		borderBottomWidth: 1,
+		borderBottomColor: colors.lightGray
 	},
 	text: {
-		fontSize: fontSizes.medium,
-		color: colors.white
+		fontSize: fontSizes.medium
+	},
+	'text--now': {
+		color: colors.red
+	},
+	'text--later': {
+		color: colors.orange
+	},
+	'text--someday': {
+		color: colors.blue
+	},
+	'text--complete': {
+		color: colors.lightGray
 	},
 	swipeout: {
 		backgroundColor: colors.white

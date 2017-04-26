@@ -1,6 +1,6 @@
 const initialState = {
     list: [
-        { id: 0, name: 'Pay electric bill', list: 'now', status: 'active' },
+        { id: 0, name: 'Pay electric bill', list: 'now', status: 'complete' },
         { id: 1, name: 'Call plumber regarding leak', list: 'now', status: 'active'  },
         { id: 2, name: 'Schedule appointment with dentist', list: 'later', status: 'active'  },
         { id: 3, name: 'Clean out fridge', list: 'someday', status: 'active'  },
