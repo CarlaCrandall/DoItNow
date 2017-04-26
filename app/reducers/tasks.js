@@ -5,6 +5,7 @@ const initialState = {
         { id: 2, name: 'Schedule appointment with dentist', list: 'later', status: 'active'  },
         { id: 3, name: 'Clean out fridge', list: 'someday', status: 'active'  },
         { id: 4, name: 'Buy birthday present for mom', list: 'later', status: 'active'  },
+        { id: 5, name: 'Call mom', list: 'now', status: 'active' },
     ]
 };
 

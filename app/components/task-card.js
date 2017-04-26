@@ -8,7 +8,7 @@ import { colors } from '../styles/vars';
 
 export default class TaskCard extends PureComponent {
 
-	renderButton(btnType = 'cancel', btnIcon = 'ban') {
+	renderButton(btnType, btnIcon) {
 		const btnText = btnType.charAt(0).toUpperCase() + btnType.slice(1);
 
 		return (
@@ -24,23 +24,20 @@ export default class TaskCard extends PureComponent {
 	    		TaskCardStyles[`text--${this.props.status}`]
 	    	],
 	    	toggleAction = this.props.status === 'active' ? 'complete' : 'uncheck',
-			toggleIcon = this.props.status === 'active' ? 'check' : 'check-circle-o';
+			toggleIcon = this.props.status === 'active' ? 'check' : 'check-circle-o',
+			swipeButtons = [{
+				component: this.renderButton('cancel', 'ban')
+			}, {
+				component: this.renderButton('edit', 'pencil'),
+				onPress: () => console.log('edit event')
+			}, {
+				component: this.renderButton('delete', 'trash'),
+				onPress: () => this.props.DELETE_TASK(this.props.id)
+			}];
 
         return (
 			<SwipeoutExtended
-				right={[
-					{
-						component: this.renderButton()
-					},
-					{
-						component: this.renderButton('edit', 'pencil'),
-						onPress: () => console.log('edit event')
-					},
-					{
-						component: this.renderButton('delete', 'trash'),
-						onPress: () => this.props.DELETE_TASK(this.props.id)
-					}
-				]}
+				right={swipeButtons}
 				style={TaskCardStyles.swipeout}
 				buttonWidth={Dimensions.get('window').width / 3}
 				autoClose={true}

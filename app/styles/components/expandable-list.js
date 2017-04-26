@@ -4,8 +4,7 @@ import { colors, fontSizes, fontWeights, iconSizes, margins } from '../vars';
 const ExpandableListStyles = StyleSheet.create({
 	view: {
 		height: 52,
-		marginTop: margins.medium,
-		marginBottom: margins.medium
+		marginVertical: margins.medium
 	},
 	'view--expanded': {
 		height: null

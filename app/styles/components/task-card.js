@@ -7,9 +7,8 @@ const TaskCardStyles = StyleSheet.create({
 		flexWrap: 'wrap',
         flexDirection: 'row',
         alignItems: 'center',
-		padding: margins.small,
-		paddingTop: margins.medium,
-		paddingBottom: margins.medium,
+		paddingHorizontal: margins.small,
+		paddingVertical: margins.medium,
 		backgroundColor: colors.white,
 		borderBottomWidth: 1,
 		borderBottomColor: colors.lightGray
