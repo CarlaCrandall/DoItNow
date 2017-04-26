@@ -1,11 +1,25 @@
 import React, { PureComponent } from 'react';
-import { Dimensions } from 'react-native';
+import { Alert, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Checkbox, SwipeButton, SwipeoutExtended } from './';
 import { TaskCardStyles } from '../styles/components';
 
 
 export default class TaskCard extends PureComponent {
+
+	onDelete() {
+		const
+			title = 'Delete Task',
+			message = 'Are you sure you want to permanently delete this task?',
+			cancelButton = { text: 'Cancel', style: 'cancel' },
+			deleteButton = {
+				text: 'Delete',
+				style: 'destructive',
+				onPress: () => this.props.DELETE_TASK(this.props.id)
+			};
+
+		Alert.alert(title, message, [cancelButton, deleteButton]);
+	}
 
 	renderButton(btnType, btnIcon) {
 		const btnText = btnType.charAt(0).toUpperCase() + btnType.slice(1);
@@ -31,7 +45,7 @@ export default class TaskCard extends PureComponent {
 				onPress: () => this.props.navigate('AddEditTask', { mode: 'edit' })
 			}, {
 				component: this.renderButton('delete', 'trash'),
-				onPress: () => this.props.DELETE_TASK(this.props.id)
+				onPress: () => this.onDelete()
 			}];
 
         return (
