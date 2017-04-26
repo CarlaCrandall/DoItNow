@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { ExpandableList, TaskList } from './';
 
 export default class TaskCategory extends Component {
@@ -10,7 +10,7 @@ export default class TaskCategory extends Component {
             completed = this.props.data.filter(task => task.status === 'complete');
 
         return (
-            <View>
+            <ScrollView>
                 <TaskList
                     data={active}
                     navigate={this.props.navigate}
@@ -24,8 +24,7 @@ export default class TaskCategory extends Component {
                     DELETE_TASK={this.props.DELETE_TASK}
                     TOGGLE_TASK={this.props.TOGGLE_TASK}
                 />
-            </View>
-
+            </ScrollView>
         );
     }
 }
