@@ -24,18 +24,23 @@ const renderButton = (icon, iconSize, onPressFunction, onPressArguments) => {
 	);
 }
 
+const navigateToAddTask = (navigation, screenProps) => {
+	navigation.navigate('AddEditTask', { mode: 'add' });
+	screenProps.SWIPEOUT_TASK(null);
+};
+
 const Stack = StackNavigator({
 	Home: {
 		screen: Tabs,
-		navigationOptions: ({navigation}) => ({
+		navigationOptions: ({navigation, screenProps}) => ({
 			...commonNavigationOptions,
 			headerTitle: 'Do It Now',
-			headerRight: renderButton('plus-square', iconSizes.large, navigation.navigate, ['AddEditTask', { mode: 'add' }])
+			headerRight: renderButton('plus-square', iconSizes.large, navigateToAddTask, [navigation, screenProps])
 		})
 	},
 	AddEditTask: {
 		screen: AddEditTask,
-		navigationOptions: ({navigation}) => ({
+		navigationOptions: ({navigation, screenProps}) => ({
 			...commonNavigationOptions,
 			headerTitle: (navigation.state.params.mode === 'add') ? 'Add Task' : 'Edit Task',
 			headerLeft: renderButton('chevron-left', iconSizes.medium, navigation.goBack, [])
