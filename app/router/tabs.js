@@ -15,7 +15,7 @@ const Tabs = TabNavigator({
 	tabBarPosition: 'top',
 	tabBarOptions: {
 		activeTintColor: colors.darkGray,
-		inactiveTintColor: colors.lightGray,
+		inactiveTintColor: colors.mediumGray,
 		indicatorStyle: TabNavigatorStyles.indicator,
 		labelStyle: TabNavigatorStyles.label,
 		style: TabNavigatorStyles.tabBar

@@ -10,7 +10,7 @@ const TaskCardStyles = StyleSheet.create({
 		paddingHorizontal: margins.small,
 		paddingVertical: margins.medium,
 		backgroundColor: colors.white,
-		borderBottomWidth: 1,
+		borderBottomWidth: 0.5,
 		borderBottomColor: colors.lightGray
 	},
 	text: {
@@ -26,7 +26,8 @@ const TaskCardStyles = StyleSheet.create({
 		color: colors.blue
 	},
 	'text--complete': {
-		color: colors.lightGray
+		color: colors.mediumGray,
+		textDecorationLine: 'line-through'
 	},
 	swipeout: {
 		backgroundColor: colors.white

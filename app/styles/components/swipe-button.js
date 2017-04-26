@@ -16,7 +16,7 @@ const TaskCardStyles = StyleSheet.create({
 		fontSize: fontSizes.medium
 	},
 	'swipeText--cancel': {
-		color: colors.lightGray
+		color: colors.mediumGray
 	},
 	'swipeText--delete': {
 		color: colors.red
@@ -33,7 +33,7 @@ const TaskCardStyles = StyleSheet.create({
 		marginRight: margins.xsmall
 	},
 	'swipeIcon--cancel': {
-		color: colors.lightGray
+		color: colors.mediumGray
 	},
 	'swipeIcon--delete': {
 		color: colors.red

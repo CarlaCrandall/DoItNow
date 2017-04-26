@@ -4,14 +4,16 @@ import { colors, fontSizes, fontWeights, iconSizes, margins } from '../vars';
 const ExpandableListStyles = StyleSheet.create({
 	view: {
 		height: 52,
-		marginVertical: margins.medium
+		marginVertical: margins.large,
 	},
 	'view--expanded': {
 		height: null
 	},
 	button: {
 		padding: margins.small,
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
+		borderBottomWidth: 0.5,
+		borderBottomColor: colors.lightGray
 	},
 	icon: {
 		width: iconSizes.small
