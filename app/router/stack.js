@@ -30,14 +30,14 @@ const Stack = StackNavigator({
 		navigationOptions: ({navigation}) => ({
 			...commonNavigationOptions,
 			headerTitle: 'Do It Now',
-			headerRight: renderButton('plus', navigation.navigate, ['AddEditTask'])
+			headerRight: renderButton('plus', navigation.navigate, ['AddEditTask', { mode: 'add' }])
 		})
 	},
 	AddEditTask: {
 		screen: AddEditTask,
 		navigationOptions: ({navigation}) => ({
 			...commonNavigationOptions,
-			headerTitle: 'Add Task',
+			headerTitle: (navigation.state.params.mode === 'add') ? 'Add Task' : 'Edit Task',
 			headerLeft: renderButton('chevron-left', navigation.goBack, [])
 		})
 	}
