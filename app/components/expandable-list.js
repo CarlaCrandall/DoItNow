@@ -16,11 +16,9 @@ export default class ExpandableList extends Component {
         };
     }
 
-    componentWillUpdate() {
-        LayoutAnimation.easeInEaseOut();
-    }
-
     toggleList() {
+        LayoutAnimation.easeInEaseOut();
+
         this.setState({
             expanded: !this.state.expanded
         });

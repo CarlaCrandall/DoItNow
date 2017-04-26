@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { LayoutAnimation, Text, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { CheckboxStyles } from '../styles/components';
-import { CheckboxSpring } from '../styles/animations';
 import { iconSizes } from '../styles/vars';
 
 
@@ -15,11 +14,9 @@ export default class Checkbox extends PureComponent {
         };
     }
 
-    componentWillUpdate() {
-        LayoutAnimation.configureNext(CheckboxSpring);
-    }
-
     handlePress() {
+        LayoutAnimation.easeInEaseOut();
+
         this.setState({
             checked: !this.state.checked
         }, () => {
