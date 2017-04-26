@@ -13,11 +13,11 @@ const commonNavigationOptions = {
 	headerTitleStyle: StackNavigatorStyles.headerTitle
 };
 
-const renderButton = (icon, onPressFunction, onPressArguments) => {
+const renderButton = (icon, iconSize, onPressFunction, onPressArguments) => {
 	return (
 		<Icon.Button
 			name={icon}
-			size={iconSizes.medium}
+			size={iconSize}
 			style={StackNavigatorStyles.headerButton}
 			onPress={() => onPressFunction(...onPressArguments)}
 		/>
@@ -30,7 +30,7 @@ const Stack = StackNavigator({
 		navigationOptions: ({navigation}) => ({
 			...commonNavigationOptions,
 			headerTitle: 'Do It Now',
-			headerRight: renderButton('plus', navigation.navigate, ['AddEditTask', { mode: 'add' }])
+			headerRight: renderButton('plus-square', iconSizes.large, navigation.navigate, ['AddEditTask', { mode: 'add' }])
 		})
 	},
 	AddEditTask: {
@@ -38,7 +38,7 @@ const Stack = StackNavigator({
 		navigationOptions: ({navigation}) => ({
 			...commonNavigationOptions,
 			headerTitle: (navigation.state.params.mode === 'add') ? 'Add Task' : 'Edit Task',
-			headerLeft: renderButton('chevron-left', navigation.goBack, [])
+			headerLeft: renderButton('chevron-left', iconSizes.medium, navigation.goBack, [])
 		})
 	}
 },{
