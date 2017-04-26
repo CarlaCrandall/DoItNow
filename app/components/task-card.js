@@ -44,10 +44,12 @@ export default class TaskCard extends PureComponent {
 				onOpen={() => console.log('open event')}
 				scroll={() => console.log('scroll event')}
 			>
-				<View style={TaskCardStyles.taskCard}>
-					<Checkbox id={this.props.id} checked={this.props.status === 'complete'} TOGGLE_TASK={this.props.TOGGLE_TASK} />
-				    <Text style={textStyles}>{this.props.name}</Text>
-				</View>
+				<TouchableHighlight onPress={() => this.props.TOGGLE_TASK(this.props.id)}>
+					<View style={TaskCardStyles.taskCard}>
+						<Checkbox id={this.props.id} checked={this.props.status === 'complete'} TOGGLE_TASK={this.props.TOGGLE_TASK} />
+					    <Text style={textStyles}>{this.props.name}</Text>
+					</View>
+				</TouchableHighlight>
 			</SwipeoutExtended>
         );
     }

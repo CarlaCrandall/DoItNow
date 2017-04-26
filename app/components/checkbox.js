@@ -13,11 +13,9 @@ export default class Checkbox extends PureComponent {
     	];
 
         return (
-			<TouchableHighlight onPress={() => this.props.TOGGLE_TASK(this.props.id)}>
-				<View style={boxStyles}>
-					{this.props.checked && <Icon name="check" size={iconSizes.medium} style={CheckboxStyles.icon} />}
-				</View>
-			</TouchableHighlight>
+			<View style={boxStyles}>
+				{this.props.checked && <Icon name="check" size={iconSizes.medium} style={CheckboxStyles.icon} />}
+			</View>
         );
     }
 }
