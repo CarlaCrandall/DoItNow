@@ -27,7 +27,8 @@ export default class Checkbox extends PureComponent {
     renderBox() {
         const boxStyles = [
             CheckboxStyles.box,
-            this.state.checked && CheckboxStyles['box--checked']
+            CheckboxStyles[`box--${this.props.list}`],
+            this.state.checked && CheckboxStyles[`box--${this.props.list}--checked`]
         ];
 
         return (
@@ -38,11 +39,17 @@ export default class Checkbox extends PureComponent {
     }
 
     render() {
+        const textStyles = [
+            CheckboxStyles.text,
+            CheckboxStyles[`text--${this.props.list}`],
+            this.state.checked && CheckboxStyles['text--checked']
+        ];
+
         return (
             <TouchableHighlight onPress={() => this.handlePress()}>
                 <View style={this.props.style}>
                     {this.renderBox()}
-                    <Text style={this.props.textStyle}>{this.props.name}</Text>
+                    <Text style={textStyles}>{this.props.name}</Text>
                 </View>
             </TouchableHighlight>
         );

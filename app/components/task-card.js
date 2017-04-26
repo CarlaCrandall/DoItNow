@@ -31,11 +31,6 @@ export default class TaskCard extends PureComponent {
 
     render() {
     	const
-    		textStyles = [
-			    TaskCardStyles.text,
-			    TaskCardStyles[`text--${this.props.list}`],
-			    TaskCardStyles[`text--${this.props.status}`]
-			],
 	    	toggleAction = this.props.status === 'active' ? 'complete' : 'uncheck',
 			toggleIcon = this.props.status === 'active' ? 'check' : 'check-circle-o',
 			swipeButtons = [{
@@ -61,7 +56,6 @@ export default class TaskCard extends PureComponent {
 					{...this.props}
 					checked={this.props.status === 'complete'}
 					style={TaskCardStyles.row}
-					textStyle={textStyles}
 				/>
 			</SwipeoutExtended>
         );

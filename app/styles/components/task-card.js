@@ -15,24 +15,6 @@ const TaskCardStyles = StyleSheet.create({
 	},
 	swipeout: {
 		backgroundColor: colors.white
-	},
-
-	// Text Styles
-	text: {
-		fontSize: fontSizes.medium
-	},
-	'text--now': {
-		color: colors.red
-	},
-	'text--later': {
-		color: colors.orange
-	},
-	'text--someday': {
-		color: colors.blue
-	},
-	'text--complete': {
-		color: colors.mediumGray,
-		textDecorationLine: 'line-through'
 	}
 });
 
