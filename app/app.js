@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { addNavigationHelpers } from 'react-navigation';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
@@ -8,17 +9,29 @@ import { Stack } from './router';
 
 class App extends Component {
     render() {
-    	const { tasks, ...actionProps } = this.props;
+    	const
+            { dispatch, navigation, tasks, ...actionProps } = this.props,
+            navigationHelpers = addNavigationHelpers({ state: navigation, dispatch });
+
         return (
             <View style={AppContainerStyles.container}>
-            	<Stack screenProps={{...tasks, ...actionProps}} />
+            	<Stack
+                    screenProps={{...tasks, ...actionProps}}
+                    navigation={navigationHelpers}
+                />
             </View>
         );
     }
 }
 
 const
-    mapStateToProps = state => ({ tasks: state.tasks });
-    mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
+    mapStateToProps = state => ({
+        navigation: state.navigation,
+        tasks: state.tasks
+    });
+    mapDispatchToProps = dispatch => ({
+        ...bindActionCreators(actions, dispatch),
+        dispatch
+    });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
