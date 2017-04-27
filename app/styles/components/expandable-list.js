@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors, fontSizes, fontWeights, iconSizes, margins } from '../vars';
 
-const initialHeight = 52;
+const initialHeight = 42;
 
 const ExpandableListStyles = StyleSheet.create({
 	view: {

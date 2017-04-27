@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { TaskCard } from './';
+import { TaskListStyles } from '../styles/components';
 
 export default class TaskList extends Component {
 
@@ -17,7 +18,7 @@ export default class TaskList extends Component {
         );
     }
 
-    render() {
+    renderList() {
         return (
             <FlatList
                 data={this.props.data}
@@ -26,5 +27,30 @@ export default class TaskList extends Component {
                 renderItem={item => this.renderItem(item)}
             />
         );
+    }
+
+    renderMessage() {
+        const
+            listName = this.props.category.toUpperCase(),
+            textStyles = [
+                TaskListStyles['message--bold'],
+                TaskListStyles[`message--${this.props.category}`]
+            ];
+
+        return (
+            <View style={TaskListStyles.view}>
+                <Text style={TaskListStyles.message}>
+                    There are no tasks in your <Text style={textStyles}>{listName}</Text> list
+                </Text>
+            </View>
+        );
+    }
+
+    render() {
+        if (this.props.data.length > 0) {
+            return this.renderList();
+        }
+
+        return this.renderMessage();
     }
 }

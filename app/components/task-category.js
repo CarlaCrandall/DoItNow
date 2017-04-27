@@ -13,6 +13,7 @@ export default class TaskCategory extends Component {
             <ScrollView>
                 <TaskList
                     data={active}
+                    category={this.props.category}
                     swipeoutTask={this.props.swipeoutTask}
                     navigation={this.props.navigation}
                     DELETE_TASK={this.props.DELETE_TASK}
@@ -21,8 +22,9 @@ export default class TaskCategory extends Component {
                 />
                 <ExpandableList
                     data={completed}
-                    swipeoutTask={this.props.swipeoutTask}
+                    category="completed"
                     title="Completed Tasks"
+                    swipeoutTask={this.props.swipeoutTask}
                     navigation={this.props.navigation}
                     DELETE_TASK={this.props.DELETE_TASK}
                     TOGGLE_TASK={this.props.TOGGLE_TASK}
