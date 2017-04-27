@@ -50,7 +50,7 @@ export default class ExpandableList extends Component {
                 <TaskList
                     data={this.props.data}
                     swipeoutTask={this.props.swipeoutTask}
-                    navigate={this.props.navigate}
+                    navigation={this.props.navigation}
                     DELETE_TASK={this.props.DELETE_TASK}
                     TOGGLE_TASK={this.props.TOGGLE_TASK}
                     SWIPEOUT_TASK={this.props.SWIPEOUT_TASK}

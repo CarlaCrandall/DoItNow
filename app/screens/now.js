@@ -7,6 +7,6 @@ export default class Now extends Component {
 			{ list, ...props } = this.props.screenProps,
         	listData = list.filter(task => task.list === 'now');
 
-        return <TaskCategory data={listData} navigate={this.props.navigation.navigate} {...props} />;
+        return <TaskCategory navigation={this.props.navigation} data={listData} {...props} />;
     }
 }

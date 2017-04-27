@@ -22,7 +22,7 @@ export default class TaskCard extends PureComponent {
 	}
 
 	onEdit() {
-		this.props.navigate('AddEditTask', { mode: 'edit' });
+		this.props.navigation.navigate('AddEditTask', { mode: 'edit' });
 		this.props.SWIPEOUT_TASK(null);
 	}
 
