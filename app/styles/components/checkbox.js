@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fontSizes, fontWeights, iconSizes, margins } from '../vars';
+import { colors, fontSizes, iconSizes, margins } from '../vars';
 
 const borderWidth = 2;
 

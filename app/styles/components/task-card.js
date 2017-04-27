@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors, fontSizes, fontWeights, margins } from '../vars';
+import { colors, margins } from '../vars';
 
 const TaskCardStyles = StyleSheet.create({
 	row: {
