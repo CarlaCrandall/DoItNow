@@ -13,6 +13,7 @@ const AppTabNavigatorStyles = StyleSheet.create({
 	tab: {
 		marginVertical: margins.xsmall,
 		borderBottomWidth: 2,
+		borderBottomColor: colors.mediumGray
 	},
 	'tab--now': {
 		borderBottomColor: colors.red
@@ -26,9 +27,10 @@ const AppTabNavigatorStyles = StyleSheet.create({
 
 	// Label Styles
 	label: {
-		padding: margins.xsmall / 2,
-		fontSize: fontSizes.medium,
-		fontWeight: fontWeights.normal
+		paddingVertical: margins.xsmall / 2,
+		color: colors.mediumGray,
+		fontSize: fontSizes.small,
+		fontWeight: fontWeights.bold
 	},
 	'label--now': {
 		color: colors.red

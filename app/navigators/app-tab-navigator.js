@@ -10,11 +10,11 @@ const renderTab = (routeName, focused) => {
 		tabName = routeName.charAt(0).toLowerCase() + routeName.slice(1),
 		tabStyles = [
 			AppTabNavigatorStyles.tab,
-			AppTabNavigatorStyles[`tab--${tabName}`]
+			focused && AppTabNavigatorStyles[`tab--${tabName}`]
 		];
 		labelStyles = [
 			AppTabNavigatorStyles.label,
-			AppTabNavigatorStyles[`label--${tabName}`]
+			focused && AppTabNavigatorStyles[`label--${tabName}`]
 		];
 
 	return (
