@@ -1,7 +1,7 @@
 import React from 'react';
 import { TabNavigator, TabView } from 'react-navigation';
 import { Text, View } from 'react-native';
-import { Later, Now, Someday } from '../screens';
+import { TabCategory } from '../screens';
 import { AppTabNavigatorStyles } from '../styles/navigators';
 import { colors } from '../styles/vars';
 
@@ -26,19 +26,19 @@ const renderTab = (routeName, focused) => {
 
 const AppTabNavigator = TabNavigator({
 	Now: {
-		screen: Now,
+		screen: TabCategory,
 		navigationOptions: {
 			tabBarLabel: ({route, focused}) => renderTab(route.routeName, focused)
 		}
 	},
 	Later: {
-		screen: Later,
+		screen: TabCategory,
 		navigationOptions: {
 			tabBarLabel: ({route, focused}) => renderTab(route.routeName, focused)
 		}
 	},
 	Someday: {
-		screen: Someday,
+		screen: TabCategory,
 		navigationOptions: {
 			tabBarLabel: ({route, focused}) => renderTab(route.routeName, focused)
 		}
