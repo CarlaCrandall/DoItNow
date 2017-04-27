@@ -1,2 +1,2 @@
-export TabNavigatorStyles from './tab-navigator';
-export StackNavigatorStyles from './stack-navigator';
+export AppNavigatorStyles from './app-navigator';
+export AppTabNavigatorStyles from './app-tab-navigator';

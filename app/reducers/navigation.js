@@ -1,8 +1,8 @@
 import { NavigationActions } from 'react-navigation';
-import { Stack } from '../router';
+import { AppNavigator } from '../navigators';
 
 const navigation = (state, action) => {
-    return Stack.router.getStateForAction(action, state) || state;
+    return AppNavigator.router.getStateForAction(action, state) || state;
 }
 
 export default navigation;

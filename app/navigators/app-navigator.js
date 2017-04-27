@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 import { StackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Tabs from './tabs';
+import AppTabNavigator from './app-tab-navigator';
 import { AddEditTask } from '../screens';
-import { StackNavigatorStyles } from '../styles/navigators';
+import { AppNavigatorStyles } from '../styles/navigators';
 import { colors, iconSizes } from '../styles/vars';
 
 const commonNavigationOptions = {
 	headerBackTitle: null,
 	headerTintColor: colors.white,
-	headerStyle: StackNavigatorStyles.header,
-	headerTitleStyle: StackNavigatorStyles.headerTitle
+	headerStyle: AppNavigatorStyles.header,
+	headerTitleStyle: AppNavigatorStyles.headerTitle
 };
 
 const renderButton = (icon, iconSize, onPressFunction, onPressArguments) => {
@@ -18,15 +18,15 @@ const renderButton = (icon, iconSize, onPressFunction, onPressArguments) => {
 		<Icon.Button
 			name={icon}
 			size={iconSize}
-			style={StackNavigatorStyles.headerButton}
+			style={AppNavigatorStyles.headerButton}
 			onPress={() => onPressFunction(...onPressArguments)}
 		/>
 	);
 }
 
-const Stack = StackNavigator({
+const AppNavigator = StackNavigator({
 	Home: {
-		screen: Tabs,
+		screen: AppTabNavigator,
 		navigationOptions: ({navigation, screenProps}) => ({
 			...commonNavigationOptions,
 			headerTitle: 'Do It Now',
@@ -42,7 +42,7 @@ const Stack = StackNavigator({
 		})
 	}
 },{
-	cardStyle: StackNavigatorStyles.card
+	cardStyle: AppNavigatorStyles.card
 });
 
-export default Stack;
+export default AppNavigator;

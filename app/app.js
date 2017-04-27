@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { View } from 'react-native';
 import * as actions from './actions';
 import { AppContainerStyles } from './styles/containers';
-import { Stack } from './router';
+import { AppNavigator } from './navigators';
 
 class App extends Component {
     handleNavigationStateChange({SWIPEOUT_TASK}) {
@@ -19,7 +19,7 @@ class App extends Component {
 
         return (
             <View style={AppContainerStyles.container}>
-            	<Stack
+            	<AppNavigator
                     screenProps={{...tasks, ...actionProps}}
                     navigation={navigationHelpers}
                     onNavigationStateChange={(prevState, currentState) => this.handleNavigationStateChange(actionProps) }

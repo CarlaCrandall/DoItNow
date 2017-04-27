@@ -2,19 +2,19 @@ import React from 'react';
 import { TabNavigator, TabView } from 'react-navigation';
 import { Text, View } from 'react-native';
 import { Later, Now, Someday } from '../screens';
-import { TabNavigatorStyles } from '../styles/navigators';
+import { AppTabNavigatorStyles } from '../styles/navigators';
 import { colors } from '../styles/vars';
 
 const renderTab = (routeName, focused) => {
 	const
 		tabName = routeName.charAt(0).toLowerCase() + routeName.slice(1),
 		tabStyles = [
-			TabNavigatorStyles.tab,
-			TabNavigatorStyles[`tab--${tabName}`]
+			AppTabNavigatorStyles.tab,
+			AppTabNavigatorStyles[`tab--${tabName}`]
 		];
 		labelStyles = [
-			TabNavigatorStyles.label,
-			TabNavigatorStyles[`label--${tabName}`]
+			AppTabNavigatorStyles.label,
+			AppTabNavigatorStyles[`label--${tabName}`]
 		];
 
 	return (
@@ -24,7 +24,7 @@ const renderTab = (routeName, focused) => {
 	);
 }
 
-const Tabs = TabNavigator({
+const AppTabNavigator = TabNavigator({
 	Now: {
 		screen: Now,
 		navigationOptions: {
@@ -50,9 +50,9 @@ const Tabs = TabNavigator({
 	tabBarPosition: 'top',
 	tabBarOptions: {
 		pressOpacity: 1,
-		indicatorStyle: TabNavigatorStyles.indicator,
-		style: TabNavigatorStyles.tabBar
+		indicatorStyle: AppTabNavigatorStyles.indicator,
+		style: AppTabNavigatorStyles.tabBar
 	}
 });
 
-export default Tabs;
+export default AppTabNavigator;
