@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors, fontSizes, fontWeights, margins } from '../vars';
 
-const styles = StyleSheet.create({
+const AppTabNavigatorStyles = StyleSheet.create({
 	tabBar: {
 		backgroundColor: colors.white
 	},
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default styles;
+export default AppTabNavigatorStyles;

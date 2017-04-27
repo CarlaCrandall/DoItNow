@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors, fontSizes, margins } from '../vars';
 
-const TaskCardStyles = StyleSheet.create({
+const SwipeButtonStyles = StyleSheet.create({
 	swipeBtn: {
 		flex: 1,
 		flexWrap: 'wrap',
@@ -40,4 +40,4 @@ const TaskCardStyles = StyleSheet.create({
 	}
 });
 
-export default TaskCardStyles;
+export default SwipeButtonStyles;

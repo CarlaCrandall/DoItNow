@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors, fontSizes, fontWeights } from '../vars';
 
-const styles = StyleSheet.create({
+const AppNavigatorStyles = StyleSheet.create({
 	header: {
 		backgroundColor: colors.red
 	},
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default styles;
+export default AppNavigatorStyles;
