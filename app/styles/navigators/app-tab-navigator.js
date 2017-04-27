@@ -13,7 +13,7 @@ const AppTabNavigatorStyles = StyleSheet.create({
 	tab: {
 		marginVertical: margins.xsmall,
 		borderBottomWidth: 2,
-		borderBottomColor: colors.mediumGray
+		borderBottomColor: colors.white
 	},
 	'tab--now': {
 		borderBottomColor: colors.red
