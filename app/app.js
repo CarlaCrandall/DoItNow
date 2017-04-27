@@ -8,6 +8,10 @@ import { AppContainerStyles } from './styles/containers';
 import { Stack } from './router';
 
 class App extends Component {
+    handleNavigationStateChange({SWIPEOUT_TASK}) {
+        SWIPEOUT_TASK(null);
+    }
+
     render() {
     	const
             { dispatch, navigation, tasks, ...actionProps } = this.props,
@@ -18,6 +22,7 @@ class App extends Component {
             	<Stack
                     screenProps={{...tasks, ...actionProps}}
                     navigation={navigationHelpers}
+                    onNavigationStateChange={(prevState, currentState) => this.handleNavigationStateChange(actionProps) }
                 />
             </View>
         );
