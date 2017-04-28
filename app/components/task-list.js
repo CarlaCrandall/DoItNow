@@ -8,7 +8,7 @@ export default class TaskList extends Component {
     renderItem({item}) {
         return (
             <TaskCard
-                {...item}
+                task={item}
                 swipeoutTask={this.props.swipeoutTask}
                 navigation={this.props.navigation}
                 DELETE_TASK={this.props.DELETE_TASK}

@@ -15,10 +15,19 @@ export default class TaskCard extends PureComponent {
 			deleteButton = {
 				text: 'Delete',
 				style: 'destructive',
-				onPress: () => this.props.DELETE_TASK(this.props.id)
+				onPress: () => this.props.DELETE_TASK(this.props.task.id)
 			};
 
 		Alert.alert(title, message, [cancelButton, deleteButton]);
+	}
+
+	onEdit() {
+		const params = {
+			...this.props.task,
+			mode: 'edit'
+		};
+
+		this.props.navigation.navigate('AddEditTask', params);
 	}
 
 	renderButton(btnType, btnIcon) {
@@ -31,13 +40,13 @@ export default class TaskCard extends PureComponent {
 
     render() {
     	const
-	    	toggleAction = this.props.status === 'active' ? 'complete' : 'uncheck',
-			toggleIcon = this.props.status === 'active' ? 'check' : 'check-circle-o',
+	    	toggleAction = this.props.task.status === 'active' ? 'complete' : 'uncheck',
+			toggleIcon = this.props.task.status === 'active' ? 'check' : 'check-circle-o',
 			swipeButtons = [{
 				component: this.renderButton('cancel', 'ban')
 			}, {
 				component: this.renderButton('edit', 'pencil'),
-				onPress: () => this.props.navigation.navigate('AddEditTask', { mode: 'edit' })
+				onPress: () => this.onEdit()
 			}, {
 				component: this.renderButton('delete', 'trash'),
 				onPress: () => this.onDelete()
@@ -45,17 +54,17 @@ export default class TaskCard extends PureComponent {
 
         return (
 			<SwipeoutExtended
-				rowID={this.props.id}
+				rowID={this.props.task.id}
 				right={swipeButtons}
 				style={TaskCardStyles.swipeout}
 				buttonWidth={Dimensions.get('window').width / 3}
-				close={this.props.id !== this.props.swipeoutTask}
+				close={this.props.task.id !== this.props.swipeoutTask}
 				autoClose={true}
 				onOpen={(sectionID, rowID) => this.props.SWIPEOUT_TASK(rowID)}
 			>
 				<Checkbox
-					{...this.props}
-					checked={this.props.status === 'complete'}
+					{...this.props.task}
+					checked={this.props.task.status === 'complete'}
 					style={TaskCardStyles.row}
 				/>
 			</SwipeoutExtended>
