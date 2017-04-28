@@ -7,11 +7,11 @@ import { colors } from '../styles/vars';
 export default class AddEditTask extends Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
 			taskName: '',
 			urgent: false,
-			important: false,
-			list: false
+			important: false
 		};
 	}
 
@@ -56,7 +56,17 @@ export default class AddEditTask extends Component {
 		}
 	}
 
+	handleDelete() {
+		const
+			{ id } = this.props.navigation.state.params,
+			{ DELETE_TASK } = this.props.screenProps;
+
+		DELETE_TASK(id);
+	}
+
     render() {
+    	const { mode } = this.props.navigation.state.params;
+
         return (
         	<View style={AddEditTaskStyles.container}>
 				<TextInput
@@ -81,6 +91,7 @@ export default class AddEditTask extends Component {
 					/>
 				</View>
 				<Button title="Save" onPress={() => this.handleSave()} />
+				{mode === 'edit' && <Button title="Delete" onPress={() => this.handleDelete()} />}
         	</View>);
     }
 }
