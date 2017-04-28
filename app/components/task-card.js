@@ -66,6 +66,7 @@ export default class TaskCard extends PureComponent {
 					{...this.props.task}
 					checked={this.props.task.status === 'complete'}
 					style={TaskCardStyles.row}
+					TOGGLE_TASK={this.props.TOGGLE_TASK}
 				/>
 			</SwipeoutExtended>
         );
