@@ -8,10 +8,14 @@ export default class AddEditTask extends Component {
 	constructor(props) {
 		super(props);
 
+		const
+			{ name, list } = props.navigation.state.params,
+			{ urgent, important } = this.getValuesFromListType(list);
+
 		this.state = {
-			taskName: '',
-			urgent: false,
-			important: false
+			taskName: name || '',
+			urgent: urgent,
+			important: important
 		};
 	}
 
@@ -19,8 +23,23 @@ export default class AddEditTask extends Component {
 		return '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
 	}
 
+	getValuesFromListType(list) {
+		let urgent = false,
+			important = false;
+
+		if (list === 'now' || list === 'later') {
+			urgent = true;
+		}
+
+		if (list === 'now' || list === 'someday') {
+			important = true;
+		}
+
+		return { urgent, important };
+	}
+
 	// Logic loosely based on / inspired by Eisenhower Matrix
-	getTaskType(urgent, important) {
+	getListTypeFromValues(urgent, important) {
 		if (urgent && important) {
 			return 'now';
 		} else if (urgent) {
@@ -39,15 +58,15 @@ export default class AddEditTask extends Component {
 	handleSave() {
 		const
 			{ ADD_TASK } = this.props.screenProps,
-			taskType = this.getTaskType(this.state.urgent, this.state.important);
+			listType = this.getListTypeFromValues(this.state.urgent, this.state.important);
 
-		if (taskType) {
+		if (listType) {
 			ADD_TASK({
 				id: this.getId(),
 				name: this.state.taskName,
 				urgent: this.state.urgent,
 				important: this.state.important,
-				list: taskType,
+				list: listType,
 				status: 'active'
 			});
 		} else {
@@ -81,12 +100,14 @@ export default class AddEditTask extends Component {
 						fieldKey="urgent"
 						icon="clock-o"
 						text="Urgent"
+						toggled={this.state.urgent}
 						onToggle={(key, value) => this.handleToggle(key, value)}
 					/>
 					<ToggleButton
 						fieldKey="important"
 						icon="exclamation-circle"
 						text="Important"
+						toggled={this.state.important}
 						onToggle={(key, value) => this.handleToggle(key, value)}
 					/>
 				</View>
