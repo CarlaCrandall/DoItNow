@@ -10,18 +10,50 @@ export default class AddEditTask extends Component {
 		this.state = {
 			taskName: '',
 			urgent: false,
-			important: false
+			important: false,
+			list: false
 		};
 	}
 
+	getId() {
+		return '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
+	}
+
+	// Logic loosely based on / inspired by Eisenhower Matrix
+	getTaskType(urgent, important) {
+		if (urgent && important) {
+			return 'now';
+		} else if (urgent) {
+			return 'later';
+		} else if (important) {
+			return 'someday';
+		}
+
+		return false;
+	}
+
 	handleToggle(key, value) {
-		this.setState({
-			[key]: value
-		});
+		this.setState({ [key]: value });
 	}
 
 	handleSave() {
+		const
+			{ ADD_TASK } = this.props.screenProps,
+			taskType = this.getTaskType(this.state.urgent, this.state.important);
 
+		if (taskType) {
+			ADD_TASK({
+				id: this.getId(),
+				name: this.state.taskName,
+				urgent: this.state.urgent,
+				important: this.state.important,
+				list: taskType,
+				status: 'active'
+			});
+		} else {
+			// SHOW MESSAGE
+			console.log('do not add');
+		}
 	}
 
     render() {
