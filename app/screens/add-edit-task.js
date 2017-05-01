@@ -21,7 +21,8 @@ export default class AddEditTask extends Component {
 	}
 
 	getId() {
-		return '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
+		const { id } = this.props.navigation.state.params;
+		return id || '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
 	}
 
 	getValuesFromListType(list) {
@@ -56,22 +57,33 @@ export default class AddEditTask extends Component {
 		this.setState({ [key]: value });
 	}
 
+	editOrAddTask(task) {
+		const
+			{ ADD_TASK, EDIT_TASK } = this.props.screenProps,
+			{ mode } = this.props.navigation.state.params;
+
+		if (mode === 'edit') {
+			EDIT_TASK(task.id, task);
+		} else {
+			ADD_TASK(task);
+		}
+	}
+
 	handleSave() {
 		const
 			{ goBack } = this.props.navigation,
-			{ ADD_TASK } = this.props.screenProps,
-			listType = this.getListTypeFromValues(this.state.urgent, this.state.important);
-
-		if (listType) {
-			ADD_TASK({
+			listType = this.getListTypeFromValues(this.state.urgent, this.state.important),
+			task = {
 				id: this.getId(),
 				name: this.state.taskName,
 				urgent: this.state.urgent,
 				important: this.state.important,
 				list: listType,
 				status: 'active'
-			});
+			};
 
+		if (listType) {
+			this.editOrAddTask(task);
 			goBack();
 		} else {
 			// SHOW MESSAGE

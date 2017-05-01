@@ -20,6 +20,19 @@ const tasks = (state = initialState, action) => {
             };
         }
 
+        case 'EDIT_TASK': {
+            return {
+                ...state,
+                list: state.list.map(task => {
+                    if (task.id === action.id) {
+                        task = action.task;
+                    }
+
+                    return task;
+                })
+            }
+        }
+
         case 'DELETE_TASK': {
             return {
                 ...state,
