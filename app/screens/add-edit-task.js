@@ -57,6 +57,7 @@ export default class AddEditTask extends Component {
 
 	handleSave() {
 		const
+			{ goBack } = this.props.navigation,
 			{ ADD_TASK } = this.props.screenProps,
 			listType = this.getListTypeFromValues(this.state.urgent, this.state.important);
 
@@ -69,6 +70,8 @@ export default class AddEditTask extends Component {
 				list: listType,
 				status: 'active'
 			});
+
+			goBack();
 		} else {
 			// SHOW MESSAGE
 			console.log('do not add');
@@ -78,9 +81,11 @@ export default class AddEditTask extends Component {
 	handleDelete() {
 		const
 			{ id } = this.props.navigation.state.params,
+			{ goBack } = this.props.navigation,
 			{ DELETE_TASK } = this.props.screenProps;
 
 		DELETE_TASK(id);
+		goBack();
 	}
 
     render() {
