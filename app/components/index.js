@@ -1,3 +1,4 @@
+export TaskForm from './task-form';
 export Checkbox from './checkbox';
 export ExpandableList from './expandable-list';
 export TaskCategory from './task-category';
