@@ -42,7 +42,7 @@ class AddEditTask extends Component {
 	// 	return { urgent, important };
 	// }
 
-	// // Logic loosely based on / inspired by Eisenhower Matrix
+	// Logic loosely based on / inspired by Eisenhower Matrix
 	getListTypeFromValues(urgent, important) {
 		if (urgent && important) {
 			return 'now';
@@ -54,12 +54,6 @@ class AddEditTask extends Component {
 
 		return false;
 	}
-
-	// handleToggle(key, value) {
-	// 	this.setState({ [key]: value });
-	// }
-
-
 
 	handleDelete() {
 		const
