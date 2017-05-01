@@ -5,7 +5,7 @@ import { Alert, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ToggleButton from './toggle-button';
 import validate from '../validation/add-edit-task';
-import { AddEditTaskStyles } from '../styles/containers';
+import { TaskFormStyles } from '../styles/components';
 import { colors, iconSizes } from '../styles/vars';
 
 class TaskForm extends Component {
@@ -85,7 +85,7 @@ class TaskForm extends Component {
 		return (
 			<View>
 				<TextInput
-					style={AddEditTaskStyles.textInput}
+					style={TaskFormStyles.textInput}
 					placeholder="Task Name..."
 					placeholderTextColor={colors.mediumGray}
 					value={value}
@@ -120,9 +120,9 @@ class TaskForm extends Component {
 
 	renderButton(btnType, icon, onPress) {
 		const
-			buttonStyles = [AddEditTaskStyles.button, AddEditTaskStyles[`${btnType}Button`]],
-			iconStyles =[AddEditTaskStyles.buttonIcon, AddEditTaskStyles[`${btnType}ButtonIcon`]],
-			textStyles =[AddEditTaskStyles.buttonText, AddEditTaskStyles[`${btnType}ButtonText`]],
+			buttonStyles = [TaskFormStyles.button, TaskFormStyles[`${btnType}Button`]],
+			iconStyles =[TaskFormStyles.buttonIcon, TaskFormStyles[`${btnType}ButtonIcon`]],
+			textStyles =[TaskFormStyles.buttonText, TaskFormStyles[`${btnType}ButtonText`]],
 			btnText = btnType.charAt(0).toUpperCase() + btnType.slice(1);
 
 		return (
@@ -140,7 +140,7 @@ class TaskForm extends Component {
         	<View>
 				<Field name="taskName" component={this.renderInput} />
 
-				<View style={AddEditTaskStyles.toggleContainer}>
+				<View style={TaskFormStyles.toggleContainer}>
 					<Field name="urgent" icon="clock-o" component={this.renderCheckbox} />
 					<Field name="important" icon="exclamation-circle" component={this.renderCheckbox} />
 				</View>
