@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Field, Fields, reduxForm } from 'redux-form';
 import { Alert, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -8,38 +9,10 @@ import { AddEditTaskStyles } from '../styles/containers';
 import { colors, iconSizes } from '../styles/vars';
 
 class TaskForm extends Component {
-	// constructor(props) {
-	// 	super(props);
-
-	// 	const
-	// 		{ name, list } = props.navigation.state.params,
-	// 		{ urgent, important } = this.getValuesFromListType(list);
-
-	// 	this.state = {
-	// 		taskName: name || '',
-	// 		urgent: urgent,
-	// 		important: important
-	// 	};
-	// }
 
 	getId() {
 		return this.props.id || '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
 	}
-
-	// getValuesFromListType(list) {
-	// 	let urgent = false,
-	// 		important = false;
-
-	// 	if (list === 'now' || list === 'later') {
-	// 		urgent = true;
-	// 	}
-
-	// 	if (list === 'now' || list === 'someday') {
-	// 		important = true;
-	// 	}
-
-	// 	return { urgent, important };
-	// }
 
 	// Logic loosely based on / inspired by Eisenhower Matrix
 	getListTypeFromValues(urgent, important) {
@@ -180,12 +153,7 @@ class TaskForm extends Component {
     }
 }
 
-export default reduxForm({
-	form: 'TaskForm',
-	validate: validate,
-	initialValues: {
-		taskName: 'Some task',
-		urgent: true,
-		important: false
-	}
-})(TaskForm)
+TaskForm = reduxForm({ form: 'TaskForm', validate: validate })(TaskForm)
+TaskForm = connect((state, props) => ({ initialValues: props.initialValues }))(TaskForm)
+
+export default TaskForm;
