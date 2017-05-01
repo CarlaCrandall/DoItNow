@@ -22,10 +22,10 @@ class AddEditTask extends Component {
 	// 	};
 	// }
 
-	// getId() {
-	// 	const { id } = this.props.navigation.state.params;
-	// 	return id || '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
-	// }
+	getId() {
+		const { id } = this.props.navigation.state.params;
+		return id || '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
+	}
 
 	// getValuesFromListType(list) {
 	// 	let urgent = false,
@@ -43,55 +43,23 @@ class AddEditTask extends Component {
 	// }
 
 	// // Logic loosely based on / inspired by Eisenhower Matrix
-	// getListTypeFromValues(urgent, important) {
-	// 	if (urgent && important) {
-	// 		return 'now';
-	// 	} else if (urgent) {
-	// 		return 'later';
-	// 	} else if (important) {
-	// 		return 'someday';
-	// 	}
+	getListTypeFromValues(urgent, important) {
+		if (urgent && important) {
+			return 'now';
+		} else if (urgent) {
+			return 'later';
+		} else if (important) {
+			return 'someday';
+		}
 
-	// 	return false;
-	// }
+		return false;
+	}
 
 	// handleToggle(key, value) {
 	// 	this.setState({ [key]: value });
 	// }
 
-	// editOrAddTask(task) {
-	// 	const
-	// 		{ ADD_TASK, EDIT_TASK } = this.props.screenProps,
-	// 		{ mode } = this.props.navigation.state.params;
 
-	// 	if (mode === 'edit') {
-	// 		EDIT_TASK(task.id, task);
-	// 	} else {
-	// 		ADD_TASK(task);
-	// 	}
-	// }
-
-	// handleSave() {
-	// 	const
-	// 		{ goBack } = this.props.navigation,
-	// 		listType = this.getListTypeFromValues(this.state.urgent, this.state.important),
-	// 		task = {
-	// 			id: this.getId(),
-	// 			name: this.state.taskName,
-	// 			urgent: this.state.urgent,
-	// 			important: this.state.important,
-	// 			list: listType,
-	// 			status: 'active'
-	// 		};
-
-	// 	if (listType) {
-	// 		this.editOrAddTask(task);
-	// 		goBack();
-	// 	} else {
-	// 		// SHOW MESSAGE
-	// 		console.log('do not add');
-	// 	}
-	// }
 
 	// handleDelete() {
 	// 	const
@@ -141,8 +109,33 @@ class AddEditTask extends Component {
 	// 	);
 	// }
 
-	submit(values) {
-		console.log('submit', values);
+	editOrAddTask(task) {
+		const
+			{ ADD_TASK, EDIT_TASK } = this.props.screenProps,
+			{ mode } = this.props.navigation.state.params;
+
+		if (mode === 'edit') {
+			EDIT_TASK(task.id, task);
+		} else {
+			ADD_TASK(task);
+		}
+	}
+
+	handleSave(values) {
+		const
+			{ goBack } = this.props.navigation,
+			listType = this.getListTypeFromValues(values.urgent, values.important),
+			task = {
+				id: this.getId(),
+				name: values.taskName,
+				urgent: values.urgent,
+				important: values.important,
+				list: listType,
+				status: 'active'
+			};
+
+		this.editOrAddTask(task);
+		goBack();
 	}
 
 	renderInput({input, meta}) {
@@ -199,7 +192,7 @@ class AddEditTask extends Component {
 					<Field name="important" icon="exclamation-circle" component={this.renderCheckbox} />
 				</View>
 
-				<TouchableOpacity style={AddEditTaskStyles.button} onPress={handleSubmit(this.submit)}>
+				<TouchableOpacity style={AddEditTaskStyles.button} onPress={handleSubmit((values) => this.handleSave(values))}>
 					<Icon name='check-circle' size={iconSizes.medium} style={AddEditTaskStyles.buttonIcon} />
 					<Text style={AddEditTaskStyles.buttonText}>Save</Text>
 				</TouchableOpacity>
