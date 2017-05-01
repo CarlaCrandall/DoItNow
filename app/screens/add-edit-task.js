@@ -61,29 +61,29 @@ class AddEditTask extends Component {
 
 
 
-	// handleDelete() {
-	// 	const
-	// 		title = 'Delete Task',
-	// 		message = 'Are you sure you want to permanently delete this task?',
-	// 		cancelButton = { text: 'Cancel', style: 'cancel' },
-	// 		deleteButton = {
-	// 			text: 'Delete',
-	// 			style: 'destructive',
-	// 			onPress: () => this.deleteTask()
-	// 		};
+	handleDelete() {
+		const
+			title = 'Delete Task',
+			message = 'Are you sure you want to permanently delete this task?',
+			cancelButton = { text: 'Cancel', style: 'cancel' },
+			deleteButton = {
+				text: 'Delete',
+				style: 'destructive',
+				onPress: () => this.deleteTask()
+			};
 
-	// 	Alert.alert(title, message, [cancelButton, deleteButton]);
-	// }
+		Alert.alert(title, message, [cancelButton, deleteButton]);
+	}
 
-	// deleteTask() {
-	// 	const
-	// 		{ id } = this.props.navigation.state.params,
-	// 		{ goBack } = this.props.navigation,
-	// 		{ DELETE_TASK } = this.props.screenProps;
+	deleteTask() {
+		const
+			{ id } = this.props.navigation.state.params,
+			{ goBack } = this.props.navigation,
+			{ DELETE_TASK } = this.props.screenProps;
 
-	// 	DELETE_TASK(id);
-	// 	goBack();
-	// }
+		DELETE_TASK(id);
+		goBack();
+	}
 
 	// renderButton(btnType, icon, onPress) {
 	// 	const
@@ -195,6 +195,11 @@ class AddEditTask extends Component {
 				<TouchableOpacity style={AddEditTaskStyles.button} onPress={handleSubmit((values) => this.handleSave(values))}>
 					<Icon name='check-circle' size={iconSizes.medium} style={AddEditTaskStyles.buttonIcon} />
 					<Text style={AddEditTaskStyles.buttonText}>Save</Text>
+				</TouchableOpacity>
+
+				<TouchableOpacity style={AddEditTaskStyles.button} onPress={() => this.handleDelete()}>
+					<Icon name='trash' size={iconSizes.medium} style={AddEditTaskStyles.buttonIcon} />
+					<Text style={AddEditTaskStyles.buttonText}>Delete</Text>
 				</TouchableOpacity>
 
 				{/*}
