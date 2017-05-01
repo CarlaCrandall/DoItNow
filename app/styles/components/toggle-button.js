@@ -5,6 +5,7 @@ const ToggleButtonStyles = StyleSheet.create({
 	// BUTTON STYLES
 	btn: {
 		alignSelf: 'flex-start',
+		marginRight: margins.xsmall,
 		paddingVertical: margins.xsmall,
 		paddingHorizontal: margins.small,
 		flexWrap: 'wrap',

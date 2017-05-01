@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, View, Text, TextInput } from 'react-native';
+import { Button, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { ToggleButton } from '../components';
 import { AddEditTaskStyles } from '../styles/containers';
-import { colors } from '../styles/vars';
+import { colors, iconSizes } from '../styles/vars';
 
 export default class AddEditTask extends Component {
 	constructor(props) {
@@ -88,6 +89,30 @@ export default class AddEditTask extends Component {
 		goBack();
 	}
 
+	renderButton(btnType, icon, onPress) {
+		const
+			buttonStyles = [
+				AddEditTaskStyles.button,
+				AddEditTaskStyles[`${btnType}Button`]
+			],
+			iconStyles =[
+				AddEditTaskStyles.buttonIcon,
+				AddEditTaskStyles[`${btnType}ButtonIcon`]
+			],
+			textStyles =[
+				AddEditTaskStyles.buttonText,
+				AddEditTaskStyles[`${btnType}ButtonText`]
+			],
+			btnText = btnType.charAt(0).toUpperCase() + btnType.slice(1);
+
+		return (
+			<TouchableOpacity style={buttonStyles} onPress={() => onPress()}>
+				<Icon name={icon} size={iconSizes.medium} style={iconStyles} />
+				<Text style={textStyles}>{btnText}</Text>
+			</TouchableOpacity>
+		);
+	}
+
     render() {
     	const { mode } = this.props.navigation.state.params;
 
@@ -95,12 +120,12 @@ export default class AddEditTask extends Component {
         	<View style={AddEditTaskStyles.container}>
 				<TextInput
 					style={AddEditTaskStyles.textInput}
-					placeholder="Task Name"
+					placeholder="Task Name..."
 					placeholderTextColor={colors.mediumGray}
 					value={this.state.taskName}
 					onChangeText={taskName => this.setState({ taskName })}
 				/>
-				<View>
+				<View style={AddEditTaskStyles.toggleContainer}>
 					<ToggleButton
 						fieldKey="urgent"
 						icon="clock-o"
@@ -116,8 +141,10 @@ export default class AddEditTask extends Component {
 						onToggle={(key, value) => this.handleToggle(key, value)}
 					/>
 				</View>
-				<Button title="Save" onPress={() => this.handleSave()} />
-				{mode === 'edit' && <Button title="Delete" onPress={() => this.handleDelete()} />}
+				<View style={AddEditTaskStyles.buttonContainer}>
+					{this.renderButton('save', 'check-circle', this.handleSave.bind(this))}
+					{mode === 'edit' && this.renderButton('delete', 'trash', this.handleDelete.bind(this))}
+				</View>
         	</View>);
     }
 }
