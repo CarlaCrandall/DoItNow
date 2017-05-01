@@ -85,30 +85,6 @@ class AddEditTask extends Component {
 		goBack();
 	}
 
-	// renderButton(btnType, icon, onPress) {
-	// 	const
-	// 		buttonStyles = [
-	// 			AddEditTaskStyles.button,
-	// 			AddEditTaskStyles[`${btnType}Button`]
-	// 		],
-	// 		iconStyles =[
-	// 			AddEditTaskStyles.buttonIcon,
-	// 			AddEditTaskStyles[`${btnType}ButtonIcon`]
-	// 		],
-	// 		textStyles =[
-	// 			AddEditTaskStyles.buttonText,
-	// 			AddEditTaskStyles[`${btnType}ButtonText`]
-	// 		],
-	// 		btnText = btnType.charAt(0).toUpperCase() + btnType.slice(1);
-
-	// 	return (
-	// 		<TouchableOpacity style={buttonStyles} onPress={() => onPress()}>
-	// 			<Icon name={icon} size={iconSizes.medium} style={iconStyles} />
-	// 			<Text style={textStyles}>{btnText}</Text>
-	// 		</TouchableOpacity>
-	// 	);
-	// }
-
 	editOrAddTask(task) {
 		const
 			{ ADD_TASK, EDIT_TASK } = this.props.screenProps,
@@ -178,6 +154,21 @@ class AddEditTask extends Component {
 		return null;
 	}
 
+	renderButton(btnType, icon, onPress) {
+		const
+			buttonStyles = [AddEditTaskStyles.button, AddEditTaskStyles[`${btnType}Button`]],
+			iconStyles =[AddEditTaskStyles.buttonIcon, AddEditTaskStyles[`${btnType}ButtonIcon`]],
+			textStyles =[AddEditTaskStyles.buttonText, AddEditTaskStyles[`${btnType}ButtonText`]],
+			btnText = btnType.charAt(0).toUpperCase() + btnType.slice(1);
+
+		return (
+			<TouchableOpacity style={buttonStyles} onPress={() => onPress()}>
+				<Icon name={icon} size={iconSizes.medium} style={iconStyles} />
+				<Text style={textStyles}>{btnText}</Text>
+			</TouchableOpacity>
+		);
+	}
+
     render() {
     	const { mode } = this.props.navigation.state.params;
     	const { handleSubmit } = this.props;
@@ -192,23 +183,10 @@ class AddEditTask extends Component {
 					<Field name="important" icon="exclamation-circle" component={this.renderCheckbox} />
 				</View>
 
-				<TouchableOpacity style={AddEditTaskStyles.button} onPress={handleSubmit((values) => this.handleSave(values))}>
-					<Icon name='check-circle' size={iconSizes.medium} style={AddEditTaskStyles.buttonIcon} />
-					<Text style={AddEditTaskStyles.buttonText}>Save</Text>
-				</TouchableOpacity>
-
-				<TouchableOpacity style={AddEditTaskStyles.button} onPress={() => this.handleDelete()}>
-					<Icon name='trash' size={iconSizes.medium} style={AddEditTaskStyles.buttonIcon} />
-					<Text style={AddEditTaskStyles.buttonText}>Delete</Text>
-				</TouchableOpacity>
-
-				{/*}
-				<View style={AddEditTaskStyles.buttonContainer}>
-					{this.renderButton('save', 'check-circle', this.handleSave.bind(this))}
-					{mode === 'edit' && this.renderButton('delete', 'trash', this.handleDelete.bind(this))}
-				</View>
-				*/}
-        	</View>);
+				{this.renderButton('save', 'check-circle', handleSubmit((values) => this.handleSave(values)))}
+				{mode === 'edit' && this.renderButton('delete', 'trash', () => this.handleDelete())}
+        	</View>
+        );
     }
 }
 
