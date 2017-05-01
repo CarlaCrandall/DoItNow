@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Alert, View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { ToggleButton } from '../components';
 import { AddEditTaskStyles } from '../styles/containers';
@@ -92,6 +92,20 @@ export default class AddEditTask extends Component {
 	}
 
 	handleDelete() {
+		const
+			title = 'Delete Task',
+			message = 'Are you sure you want to permanently delete this task?',
+			cancelButton = { text: 'Cancel', style: 'cancel' },
+			deleteButton = {
+				text: 'Delete',
+				style: 'destructive',
+				onPress: () => this.deleteTask()
+			};
+
+		Alert.alert(title, message, [cancelButton, deleteButton]);
+	}
+
+	deleteTask() {
 		const
 			{ id } = this.props.navigation.state.params,
 			{ goBack } = this.props.navigation,
