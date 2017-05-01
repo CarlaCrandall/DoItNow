@@ -137,14 +137,14 @@ class TaskForm extends Component {
     	const { mode, handleSubmit } = this.props;
 
         return (
-        	<View style={AddEditTaskStyles.container}>
+        	<View>
 				<Field name="taskName" component={this.renderInput} />
 
-				<Fields names={['urgent', 'important']} component={this.renderMessage}/>
 				<View style={AddEditTaskStyles.toggleContainer}>
 					<Field name="urgent" icon="clock-o" component={this.renderCheckbox} />
 					<Field name="important" icon="exclamation-circle" component={this.renderCheckbox} />
 				</View>
+				<Fields names={['urgent', 'important']} component={this.renderMessage}/>
 
 				{this.renderButton('save', 'check-circle', handleSubmit((values) => this.handleSave(values)))}
 				{mode === 'edit' && this.renderButton('delete', 'trash', () => this.handleDelete())}
