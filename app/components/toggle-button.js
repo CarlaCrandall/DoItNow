@@ -18,7 +18,7 @@ export default class ToggleButton extends Component {
 		const toggled = !this.state.toggled;
 
 		this.setState({ toggled });
-		this.props.onToggle && this.props.onToggle(this.props.fieldKey, toggled);
+		this.props.onToggle && this.props.onToggle(toggled);
 	}
 
     render() {

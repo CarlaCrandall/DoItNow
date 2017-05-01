@@ -51,7 +51,7 @@ const
     mapStateToProps = state => ({
         navigation: state.navigation,
         tasks: state.tasks
-    });
+    }),
     mapDispatchToProps = dispatch => ({
         ...bindActionCreators(actions, dispatch),
         dispatch
