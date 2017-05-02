@@ -1,4 +1,5 @@
 export AnimatedTextInput from './animated-text-input';
+export Checkbox from './checkbox';
 export ExpandableList from './expandable-list';
 export SwipeButton from './swipe-button';
 export SwipeoutExtended from './swipeout-extended';
@@ -7,4 +8,3 @@ export TaskCategory from './task-category';
 export TaskForm from './task-form';
 export TaskList from './task-list';
 export TaskRow from './task-row';
-export ToggleButton from './toggle-button';

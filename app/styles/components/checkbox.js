@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native';
 import { colors, fontSizes, margins } from '../vars';
 
-const ToggleButtonStyles = StyleSheet.create({
+const CheckboxStyles = StyleSheet.create({
 	// BUTTON STYLES
-	btn: {
+	box: {
 		alignSelf: 'flex-start',
 		marginRight: margins.xsmall,
 		paddingVertical: margins.xsmall,
@@ -15,7 +15,7 @@ const ToggleButtonStyles = StyleSheet.create({
 		borderRadius: 50,
 		borderWidth: 1
 	},
-	'btn--toggled': {
+	'box--checked': {
 		backgroundColor: colors.blue,
 		borderColor: colors.blue
 	},
@@ -25,7 +25,7 @@ const ToggleButtonStyles = StyleSheet.create({
 		fontSize: fontSizes.medium,
 		color: colors.mediumGray
 	},
-	'text--toggled': {
+	'text--checked': {
 		color: colors.white
 	},
 
@@ -34,9 +34,9 @@ const ToggleButtonStyles = StyleSheet.create({
 		marginRight: margins.xsmall,
 		color: colors.mediumGray
 	},
-	'icon--toggled': {
+	'icon--checked': {
 		color: colors.white
 	}
 });
 
-export default ToggleButtonStyles;
+export default CheckboxStyles;

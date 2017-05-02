@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Field, Fields, reduxForm } from 'redux-form';
 import { Alert, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { AnimatedTextInput, ToggleButton } from './index';
+import { AnimatedTextInput, Checkbox } from './index';
 import validate from '../validation/add-edit-task';
 import { TaskFormStyles } from '../styles/components';
 import { colors, iconSizes } from '../styles/vars';
@@ -82,7 +82,7 @@ class TaskForm extends Component {
 	}
 
 	renderCheckbox({input, icon}) {
-		return <ToggleButton {...input} icon={icon} />
+		return <Checkbox {...input} icon={icon} />
 	}
 
 	renderMessage({urgent, important}) {
