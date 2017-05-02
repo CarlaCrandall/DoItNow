@@ -82,11 +82,7 @@ class TaskForm extends Component {
 	}
 
 	renderCheckbox({input, icon}) {
-		const {name, value, onChange} = input;
-
-		return (
-			<ToggleButton icon={icon} text={name} toggled={value} onToggle={onChange} />
-		);
+		return <ToggleButton {...input} icon={icon} />
 	}
 
 	renderMessage({urgent, important}) {

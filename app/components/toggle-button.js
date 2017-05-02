@@ -10,7 +10,7 @@ export default class ToggleButton extends Component {
 		super(props);
 
 		this.state = {
-			toggled: this.props.toggled
+			toggled: this.props.value
 		};
 	}
 
@@ -18,7 +18,7 @@ export default class ToggleButton extends Component {
 		const toggled = !this.state.toggled;
 
 		this.setState({ toggled });
-		this.props.onToggle && this.props.onToggle(toggled);
+		this.props.onChange && this.props.onChange(toggled);
 	}
 
     render() {
@@ -39,7 +39,7 @@ export default class ToggleButton extends Component {
 		return (
 			<TouchableOpacity style={btnStyles} onPress={() => this.handlePress()}>
 				<Icon name={this.props.icon} size={iconSizes.medium} style={iconStyles} />
-				<Text style={textStyles}>{this.props.text}</Text>
+				<Text style={textStyles}>{this.props.name}</Text>
 			</TouchableOpacity>
 		);
     }
