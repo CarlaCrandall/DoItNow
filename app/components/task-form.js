@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, Fields, reduxForm } from 'redux-form';
-import { Alert, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { Alert, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import ToggleButton from './toggle-button';
+import { AnimatedTextInput, ToggleButton } from './index';
 import validate from '../validation/add-edit-task';
 import { TaskFormStyles } from '../styles/components';
 import { colors, iconSizes } from '../styles/vars';
@@ -78,22 +78,7 @@ class TaskForm extends Component {
 	}
 
 	renderInput({input, meta}) {
-		const
-			{onChange, value, ...restInput} = input,
-			{touched, error } = meta;
-
-		return (
-			<View>
-				<TextInput
-					style={TaskFormStyles.textInput}
-					placeholder="Task Name..."
-					placeholderTextColor={colors.mediumGray}
-					value={value}
-					onChangeText={onChange}
-				/>
-				{touched && error && <Text>{error}</Text>}
-			</View>
-		)
+		return <AnimatedTextInput {...input} {...meta} label="Task Name" />
 	}
 
 	renderCheckbox({input, icon}) {

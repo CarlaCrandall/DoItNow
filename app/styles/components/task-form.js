@@ -3,10 +3,6 @@ import { colors, fontSizes, margins } from '../vars';
 
 
 const TaskFormStyles = StyleSheet.create({
-	textInput: {
-		marginVertical: margins.small,
-		height: 50
-	},
 	toggleContainer: {
 		flexWrap: 'wrap',
         flexDirection: 'row'

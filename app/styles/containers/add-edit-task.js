@@ -5,7 +5,7 @@ import { margins } from '../vars';
 const AddEditTaskStyles = StyleSheet.create({
 	container: {
 		flex: 1,
-		margin: margins.small
+		marginHorizontal: margins.small
 	}
 });
 
