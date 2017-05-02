@@ -1,3 +1,4 @@
+export AnimatedTextInput from './animated-text-input';
 export Checkbox from './checkbox';
 export ExpandableList from './expandable-list';
 export SwipeButton from './swipe-button';

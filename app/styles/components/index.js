@@ -1,3 +1,4 @@
+export AnimatedTextInputStyles from './animated-text-input';
 export CheckboxStyles from './checkbox';
 export ExpandableListStyles from './expandable-list';
 export SwipeButtonStyles from './swipe-button';
