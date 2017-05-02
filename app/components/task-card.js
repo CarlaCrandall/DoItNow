@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Alert, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Checkbox, SwipeButton, SwipeoutExtended } from './';
+import { Task, SwipeButton, SwipeoutExtended } from './';
 import { TaskCardStyles } from '../styles/components';
 
 
@@ -62,9 +62,9 @@ export default class TaskCard extends PureComponent {
 				autoClose={true}
 				onOpen={(sectionID, rowID) => this.props.SWIPEOUT_TASK(rowID)}
 			>
-				<Checkbox
+				<Task
 					{...this.props.task}
-					checked={this.props.task.status === 'complete'}
+					completed={this.props.task.status === 'complete'}
 					style={TaskCardStyles.row}
 					TOGGLE_TASK={this.props.TOGGLE_TASK}
 				/>

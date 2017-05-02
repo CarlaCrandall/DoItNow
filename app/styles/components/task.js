@@ -3,7 +3,7 @@ import { colors, fontSizes, iconSizes, margins } from '../vars';
 
 const borderWidth = 2;
 
-const CheckboxStyles = StyleSheet.create({
+const TaskStyles = StyleSheet.create({
 	icon: {
 		color: colors.white
 	},
@@ -19,19 +19,19 @@ const CheckboxStyles = StyleSheet.create({
 	'box--now': {
 		borderColor: colors.red
 	},
-	'box--now--checked': {
+	'box--now--completed': {
 		backgroundColor: colors.red
 	},
 	'box--later': {
 		borderColor: colors.orange
 	},
-	'box--later--checked': {
+	'box--later--completed': {
 		backgroundColor: colors.orange
 	},
 	'box--someday': {
 		borderColor: colors.blue
 	},
-	'box--someday--checked': {
+	'box--someday--completed': {
 		backgroundColor: colors.blue
 	},
 
@@ -48,9 +48,9 @@ const CheckboxStyles = StyleSheet.create({
 	'text--someday': {
 		color: colors.blue
 	},
-	'text--checked': {
+	'text--completed': {
 		textDecorationLine: 'line-through'
 	}
 });
 
-export default CheckboxStyles;
+export default TaskStyles;

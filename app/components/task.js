@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 import { LayoutAnimation, Text, TouchableHighlight, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { CheckboxStyles } from '../styles/components';
+import { TaskStyles } from '../styles/components';
 import { iconSizes } from '../styles/vars';
 
 
-export default class Checkbox extends PureComponent {
+export default class Task extends PureComponent {
     constructor(props) {
         super(props);
 
         this.state = {
-            checked: props.checked
+            completed: props.completed
         };
     }
 
@@ -18,7 +18,7 @@ export default class Checkbox extends PureComponent {
         LayoutAnimation.easeInEaseOut();
 
         this.setState({
-            checked: !this.state.checked
+            completed: !this.state.completed
         }, () => {
             setTimeout(() => this.props.TOGGLE_TASK(this.props.id), 300);
         });
@@ -26,23 +26,23 @@ export default class Checkbox extends PureComponent {
 
     renderBox() {
         const boxStyles = [
-            CheckboxStyles.box,
-            CheckboxStyles[`box--${this.props.list}`],
-            this.state.checked && CheckboxStyles[`box--${this.props.list}--checked`]
+            TaskStyles.box,
+            TaskStyles[`box--${this.props.list}`],
+            this.state.completed && TaskStyles[`box--${this.props.list}--completed`]
         ];
 
         return (
             <View style={boxStyles}>
-                {this.state.checked && <Icon name="check" size={iconSizes.medium} style={CheckboxStyles.icon} />}
+                {this.state.completed && <Icon name="check" size={iconSizes.medium} style={TaskStyles.icon} />}
             </View>
         );
     }
 
     render() {
         const textStyles = [
-            CheckboxStyles.text,
-            CheckboxStyles[`text--${this.props.list}`],
-            this.state.checked && CheckboxStyles['text--checked']
+            TaskStyles.text,
+            TaskStyles[`text--${this.props.list}`],
+            this.state.completed && TaskStyles['text--completed']
         ];
 
         return (
