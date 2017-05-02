@@ -3,7 +3,7 @@ import { colors, fontSizes, fontWeights } from '../vars';
 
 const AppNavigatorStyles = StyleSheet.create({
 	header: {
-		backgroundColor: colors.red
+		backgroundColor: colors.blue
 	},
 	headerTitle: {
 		color: colors.white,
@@ -11,7 +11,7 @@ const AppNavigatorStyles = StyleSheet.create({
 		fontWeight: fontWeights.light
 	},
 	headerButton: {
-		backgroundColor: colors.red
+		backgroundColor: colors.blue
 	},
 	card: {
 		backgroundColor: colors.white

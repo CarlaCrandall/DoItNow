@@ -19,7 +19,6 @@ const TaskFormStyles = StyleSheet.create({
 		alignItems: 'center',
 		marginTop: margins.small,
 		padding: margins.xsmall,
-		borderColor: colors.red,
 		borderRadius: 6,
 		borderWidth: 1
 	},
@@ -31,7 +30,8 @@ const TaskFormStyles = StyleSheet.create({
 	},
 
 	saveButton: {
-		backgroundColor: colors.red
+		backgroundColor: colors.blue,
+		borderColor: colors.blue
 	},
 	saveButtonIcon: {
 		color: colors.white
@@ -41,7 +41,8 @@ const TaskFormStyles = StyleSheet.create({
 	},
 
 	deleteButton: {
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
+		borderColor: colors.red
 	},
 	deleteButtonIcon: {
 		color: colors.red

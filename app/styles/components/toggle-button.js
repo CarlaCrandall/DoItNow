@@ -16,8 +16,8 @@ const ToggleButtonStyles = StyleSheet.create({
 		borderWidth: 1
 	},
 	'btn--toggled': {
-		backgroundColor: colors.red,
-		borderColor: colors.red
+		backgroundColor: colors.blue,
+		borderColor: colors.blue
 	},
 
 	// TEXT STYLES
