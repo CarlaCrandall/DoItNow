@@ -6,18 +6,20 @@ import { AddEditTaskStyles } from '../styles/containers';
 export default class AddEditTask extends Component {
 
 	getValuesFromListType(list) {
-		let urgent = false,
-			important = false;
-
-		if (list === 'now' || list === 'later') {
-			urgent = true;
+		switch (list) {
+			case 'now': {
+				return ['urgent', 'important'];
+			}
+			case 'later': {
+				return ['urgent'];
+			}
+			case 'someday': {
+				return ['important'];
+			}
+			default: {
+				return [];
+			}
 		}
-
-		if (list === 'now' || list === 'someday') {
-			important = true;
-		}
-
-		return { urgent, important };
 	}
 
     render() {
@@ -26,8 +28,9 @@ export default class AddEditTask extends Component {
     		{ DELETE_TASK, ADD_TASK, EDIT_TASK } = this.props.screenProps,
     		initialValues = {
     			taskName: name || '',
+    			descriptors: this.getValuesFromListType(list),
     			...this.getValuesFromListType(list)
-    		}
+    		};
 
         return (
         	<View style={AddEditTaskStyles.container}>

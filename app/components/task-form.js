@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Field, Fields, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import { Alert, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { AnimatedTextInput, Checkbox } from './index';
+import { AnimatedTextInput, CheckboxGroup } from './index';
 import validate from '../validation/add-edit-task';
 import { TaskFormStyles } from '../styles/components';
 import { colors, iconSizes } from '../styles/vars';
@@ -15,14 +15,14 @@ class TaskForm extends Component {
 	}
 
 	// Logic loosely based on / inspired by Eisenhower Matrix
-	getListTypeFromValues(urgent, important) {
-		if (urgent && important) {
-			return 'now';
-		} else if (urgent) {
-			return 'later';
-		} else if (important) {
-			return 'someday';
-		}
+	getListTypeFromValues(descriptors) {
+		const
+			urgent = descriptors.indexOf('urgent') > -1,
+			important = descriptors.indexOf('important') > -1;
+
+		if (urgent && important) return 'now';
+		if (urgent) return 'later';
+		if (important) return 'someday';
 
 		return false;
 	}
@@ -51,10 +51,10 @@ class TaskForm extends Component {
 	}
 
 	editOrAddTask(task) {
-		const { mode, ADD_TASK, EDIT_TASK } = this.props;
+		const { id, mode, ADD_TASK, EDIT_TASK } = this.props;
 
 		if (mode === 'edit') {
-			EDIT_TASK(task.id, task);
+			EDIT_TASK(id, task);
 		} else {
 			ADD_TASK(task);
 		}
@@ -63,12 +63,10 @@ class TaskForm extends Component {
 	handleSave(values) {
 		const
 			{ goBack } = this.props.navigation,
-			listType = this.getListTypeFromValues(values.urgent, values.important),
+			listType = this.getListTypeFromValues(values.descriptors),
 			task = {
 				id: this.getId(),
 				name: values.taskName,
-				urgent: values.urgent,
-				important: values.important,
 				list: listType,
 				status: 'active'
 			};
@@ -77,26 +75,12 @@ class TaskForm extends Component {
 		goBack();
 	}
 
-	renderInput({input, meta}) {
+	renderInput({ input, meta }) {
 		return <AnimatedTextInput {...input} {...meta} label="Task Name" />
 	}
 
-	renderCheckbox({input, icon}) {
-		return <Checkbox {...input} icon={icon} />
-	}
-
-	renderMessage({urgent, important}) {
-		const
-			urgentError = urgent.meta.touched && urgent.meta.error,
-			importantError = important.meta.touched && important.meta.error;
-
-		if (urgentError && importantError) {
-			return (
-				<Text>Must select one!</Text>
-			);
-		}
-
-		return null;
+	renderCheckboxGroup({ input, meta }, checkboxes) {
+		return <CheckboxGroup checkboxes={checkboxes} {...input} {...meta}  />
 	}
 
 	renderButton(btnType, icon, onPress) {
@@ -115,18 +99,17 @@ class TaskForm extends Component {
 	}
 
     render() {
-    	const { mode, handleSubmit } = this.props;
+    	const
+    		{ mode, handleSubmit } = this.props,
+    		descriptors = [
+				{ name: 'urgent', icon: 'clock-o' },
+				{ name: 'important', icon: 'exclamation-circle' }
+	    	];
 
         return (
         	<View>
 				<Field name="taskName" component={this.renderInput} />
-
-				<View style={TaskFormStyles.toggleContainer}>
-					<Field name="urgent" icon="clock-o" component={this.renderCheckbox} />
-					<Field name="important" icon="exclamation-circle" component={this.renderCheckbox} />
-				</View>
-				<Fields names={['urgent', 'important']} component={this.renderMessage}/>
-
+				<Field name="descriptors" component={field => this.renderCheckboxGroup(field, descriptors)} />
 				{this.renderButton('save', 'check-circle', handleSubmit((values) => this.handleSave(values)))}
 				{mode === 'edit' && this.renderButton('delete', 'trash', () => this.handleDelete())}
         	</View>

@@ -5,9 +5,8 @@ const validate = values => {
 		errors.taskName = 'Required field!';
 	}
 
-	if (!values.urgent && !values.important) {
-		errors.urgent = 'Must select one!';
-		errors.important = 'Must select one!';
+	if (values.descriptors.length < 1) {
+		errors.descriptors = 'Must select one!';
 	}
 
 	return errors;
