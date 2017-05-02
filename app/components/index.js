@@ -1,5 +1,6 @@
 export AnimatedTextInput from './animated-text-input';
 export Checkbox from './checkbox';
+export CheckboxGroup from './checkbox-group';
 export ExpandableList from './expandable-list';
 export SwipeButton from './swipe-button';
 export SwipeoutExtended from './swipeout-extended';
