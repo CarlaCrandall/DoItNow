@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { FlatList, Text, View } from 'react-native';
-import { TaskCard } from './';
+import { TaskRow } from './';
 import { TaskListStyles } from '../styles/components';
 
 export default class TaskList extends Component {
 
     renderItem({item}) {
         return (
-            <TaskCard
+            <TaskRow
                 task={item}
                 swipeoutTask={this.props.swipeoutTask}
                 navigation={this.props.navigation}

@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import { Alert, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Task, SwipeButton, SwipeoutExtended } from './';
-import { TaskCardStyles } from '../styles/components';
+import { TaskRowStyles } from '../styles/components';
 
 
-export default class TaskCard extends PureComponent {
+export default class TaskRow extends PureComponent {
 
 	onDelete() {
 		const
@@ -56,7 +56,7 @@ export default class TaskCard extends PureComponent {
 			<SwipeoutExtended
 				rowID={this.props.task.id}
 				right={swipeButtons}
-				style={TaskCardStyles.swipeout}
+				style={TaskRowStyles.swipeout}
 				buttonWidth={Dimensions.get('window').width / 3}
 				close={this.props.task.id !== this.props.swipeoutTask}
 				autoClose={true}
@@ -65,7 +65,7 @@ export default class TaskCard extends PureComponent {
 				<Task
 					{...this.props.task}
 					completed={this.props.task.status === 'complete'}
-					style={TaskCardStyles.row}
+					style={TaskRowStyles.row}
 					TOGGLE_TASK={this.props.TOGGLE_TASK}
 				/>
 			</SwipeoutExtended>

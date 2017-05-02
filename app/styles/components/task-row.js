@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { colors, margins } from '../vars';
 
-const TaskCardStyles = StyleSheet.create({
+const TaskRowStyles = StyleSheet.create({
 	row: {
 		flex: 1,
 		flexWrap: 'wrap',
@@ -18,4 +18,4 @@ const TaskCardStyles = StyleSheet.create({
 	}
 });
 
-export default TaskCardStyles;
+export default TaskRowStyles;
