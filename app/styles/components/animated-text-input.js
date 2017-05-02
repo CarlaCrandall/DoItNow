@@ -53,6 +53,18 @@ const AnimatedTextInputStyles = StyleSheet.create({
 		color: colors.red
 	},
 
+	// Border Styles
+	border: {
+		position: 'absolute',
+		bottom: -3,
+		left: 0,
+		height: 3,
+		backgroundColor: colors.darkGray
+	},
+	'border--error': {
+		backgroundColor: colors.red
+	},
+
 	// Error Styles
 	error: {
 		paddingTop: margins.xsmall,
