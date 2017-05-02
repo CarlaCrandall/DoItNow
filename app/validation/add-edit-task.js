@@ -2,11 +2,11 @@ const validate = values => {
 	const errors = {};
 
 	if (!values.taskName) {
-		errors.taskName = 'Required field!';
+		errors.taskName = "The task name is required.";
 	}
 
 	if (values.descriptors.length < 1) {
-		errors.descriptors = 'Must select one!';
+		errors.descriptors = "If the task is not urgent or important, it's not worth doing.";
 	}
 
 	return errors;

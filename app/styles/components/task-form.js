@@ -3,14 +3,18 @@ import { colors, fontSizes, margins } from '../vars';
 
 
 const TaskFormStyles = StyleSheet.create({
-	toggleContainer: {
-		flexWrap: 'wrap',
-        flexDirection: 'row'
+	container: {
+		flex: 1,
+		position: 'relative'
 	},
 
 	// Button Styles
 	buttonContainer: {
-		marginVertical: margins.small
+		position: 'absolute',
+		bottom: 0,
+		left: 0,
+		right: 0,
+		paddingVertical: margins.small
 	},
 	button: {
 		flexWrap: 'wrap',

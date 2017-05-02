@@ -39,14 +39,24 @@ export default class CheckboxGroup extends Component {
 	}
 
 	renderError() {
-		return <Text>{this.props.error}</Text>
+		return <Text style={CheckboxGroupStyles.error}>{this.props.error}</Text>
 	}
 
     render() {
+    	const
+	    	hasError = this.props.touched && this.props.error,
+	    	labelStyles = [
+	    		CheckboxGroupStyles.label,
+	    		hasError && CheckboxGroupStyles['label--error']
+	    	];
+
         return (
-        	<View>
-				{this.props.checkboxes.map((checkbox, index) => this.renderCheckbox(checkbox, index))}
-				{this.props.touched && this.props.error && this.renderError()}
+        	<View style={CheckboxGroupStyles.container}>
+        		<Text style={labelStyles}>{this.props.label}</Text>
+        		<View style={CheckboxGroupStyles.row}>
+        			{this.props.checkboxes.map((checkbox, index) => this.renderCheckbox(checkbox, index))}
+        		</View>
+				{hasError && this.renderError()}
         	</View>
         );
     }

@@ -1,27 +1,37 @@
 import { StyleSheet } from 'react-native';
-import { colors, fontSizes, fontWeights, iconSizes, margins } from '../vars';
+import { colors, fontSizes, fontWeights, margins } from '../vars';
 
 const
-	height = 50,
+	inputBaseHeight = 50,
+	inputContainerHeight = inputBaseHeight * 1.5,
+	errorHeight = 35,
 	borderWidth = 3;
 
 const AnimatedTextInputStyles = StyleSheet.create({
+	container: {
+		height: inputContainerHeight + errorHeight,
+		marginBottom: inputBaseHeight / 2
+	},
 	inputContainer: {
 		position: 'relative',
-		height: height * 1.5,
+		height: inputContainerHeight,
 		marginVertical: margins.small,
 		borderBottomWidth: borderWidth,
 		borderBottomColor: colors.lightGray
 	},
+	'inputContainer--error': {
+		borderBottomColor: colors.fadedRed
+	},
 
 	// Input Styles
 	input: {
-		height: height,
+		height: inputBaseHeight,
 		position: 'absolute',
 		bottom: 0,
 		left: 0,
 		right: 0,
-		color: colors.darkGray
+		color: colors.darkGray,
+		fontSize: fontSizes.large
 	},
 	'input--error': {
 		color: colors.red
@@ -32,22 +42,22 @@ const AnimatedTextInputStyles = StyleSheet.create({
 		position: 'absolute',
 		bottom: 0,
 		left: 0,
-		height: height,
-		justifyContent: 'center',
+		height: inputBaseHeight,
+		justifyContent: 'center'
 	},
 	'labelContainer--active': {
 		top: 0,
-		height: height / 2,
+		height: inputBaseHeight / 2
 	},
 	label: {
 		backgroundColor: 'transparent',
 		color: colors.mediumGray,
-		fontSize: fontSizes.medium,
-		fontWeight: fontWeights.bold
+		fontSize: fontSizes.large
 	},
 	'label--active': {
 		backgroundColor: 'transparent',
-		fontSize: fontSizes.small
+		fontSize: fontSizes.medium,
+		fontWeight: fontWeights.bold
 	},
 	'label--error': {
 		color: colors.red
@@ -59,7 +69,7 @@ const AnimatedTextInputStyles = StyleSheet.create({
 		bottom: -3,
 		left: 0,
 		height: 3,
-		backgroundColor: colors.darkGray
+		backgroundColor: colors.blue
 	},
 	'border--error': {
 		backgroundColor: colors.red
@@ -67,7 +77,7 @@ const AnimatedTextInputStyles = StyleSheet.create({
 
 	// Error Styles
 	error: {
-		paddingTop: margins.xsmall,
+		height: errorHeight,
 		color: colors.red,
 		fontSize: fontSizes.medium
 	}

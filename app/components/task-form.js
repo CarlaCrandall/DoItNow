@@ -79,8 +79,8 @@ class TaskForm extends Component {
 		return <AnimatedTextInput {...input} {...meta} label="Task Name" />
 	}
 
-	renderCheckboxGroup({ input, meta }, checkboxes) {
-		return <CheckboxGroup checkboxes={checkboxes} {...input} {...meta}  />
+	renderCheckboxGroup({ input, meta }, label, checkboxes) {
+		return <CheckboxGroup label={label} checkboxes={checkboxes} {...input} {...meta}  />
 	}
 
 	renderButton(btnType, icon, onPress) {
@@ -101,17 +101,21 @@ class TaskForm extends Component {
     render() {
     	const
     		{ mode, handleSubmit } = this.props,
+    		descriptorsLabel = "This task is...",
     		descriptors = [
 				{ name: 'urgent', icon: 'clock-o' },
 				{ name: 'important', icon: 'exclamation-circle' }
 	    	];
 
         return (
-        	<View>
+        	<View style={TaskFormStyles.container}>
 				<Field name="taskName" component={this.renderInput} />
-				<Field name="descriptors" component={field => this.renderCheckboxGroup(field, descriptors)} />
-				{this.renderButton('save', 'check-circle', handleSubmit((values) => this.handleSave(values)))}
-				{mode === 'edit' && this.renderButton('delete', 'trash', () => this.handleDelete())}
+				<Field name="descriptors" component={field => this.renderCheckboxGroup(field, descriptorsLabel, descriptors)} />
+
+				<View style={TaskFormStyles.buttonContainer}>
+					{this.renderButton('save', 'check-circle', handleSubmit((values) => this.handleSave(values)))}
+					{mode === 'edit' && this.renderButton('delete', 'trash', () => this.handleDelete())}
+				</View>
         	</View>
         );
     }

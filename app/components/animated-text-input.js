@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Animated, Easing, LayoutAnimation, Text, TextInput, View } from 'react-native';
 import { AnimatedTextInputStyles } from '../styles/components';
-import { colors, margins, iconSizes } from '../styles/vars';
+
 
 export default class AnimatedTextInput extends Component {
 
@@ -45,6 +45,10 @@ export default class AnimatedTextInput extends Component {
     	const
     		hasError = this.props.touched && this.props.error,
     		isActive = this.state.focused || this.state.hasValue,
+    		inputContainerStyles = [
+    			AnimatedTextInputStyles.inputContainer,
+    			hasError && AnimatedTextInputStyles['inputContainer--error']
+    		],
     		inputStyles = [
     			AnimatedTextInputStyles.input,
     			hasError && AnimatedTextInputStyles['input--error']
@@ -65,8 +69,8 @@ export default class AnimatedTextInput extends Component {
     		];
 
         return (
-			<View>
-				<View style={AnimatedTextInputStyles.inputContainer} onLayout={(event) => this.onLayout(event.nativeEvent.layout)}>
+			<View style={AnimatedTextInputStyles.container}>
+				<View style={inputContainerStyles} onLayout={(event) => this.onLayout(event.nativeEvent.layout)}>
 					<TextInput
 						style={inputStyles}
 						underlineColorAndroid="transparent"
