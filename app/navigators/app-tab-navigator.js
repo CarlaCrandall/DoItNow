@@ -45,6 +45,7 @@ const AppTabNavigator = TabNavigator({
 	}
 },{
 	animationEnabled: true,
+	backBehavior: 'none',
 	swipeEnabled: false,
 	tabBarComponent: TabBarTop,
 	tabBarPosition: 'top',
