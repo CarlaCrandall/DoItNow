@@ -20,7 +20,17 @@ export default class AnimatedTextInput extends Component {
 		this.setState({ hasValue: !!nextProps.value });
 	}
 
-	onLayout({width}) {
+	animateBorder(isFocused) {
+		const toValue = isFocused ? 0 : this.width;
+
+		Animated.timing(this.state.animatedValue, {
+			toValue: toValue,
+			duration: 500,
+			easing: Easing.ease.inOut
+		}).start();
+	}
+
+	onLayout({ width }) {
 		this.width = width;
 		this.setState({ animatedValue: new Animated.Value(width) });
 	}
@@ -28,13 +38,7 @@ export default class AnimatedTextInput extends Component {
 	toggleFocus(isFocused) {
 		// Only animate the bottom border if input is empty
 		if (!this.state.hasValue) {
-			const toValue = isFocused ? 0 : this.width;
-
-			Animated.timing(this.state.animatedValue, {
-				toValue: toValue,
-				duration: 500,
-				easing: Easing.ease.inOut
-			}).start();
+			this.animateBorder(isFocused);
 		}
 
 		LayoutAnimation.easeInEaseOut();
@@ -65,6 +69,7 @@ export default class AnimatedTextInput extends Component {
     		borderStyles = [
     			AnimatedTextInputStyles.border,
 				{ right: this.state.animatedValue },
+				this.state.hasValue && AnimatedTextInputStyles['border--active'],
 				hasError && AnimatedTextInputStyles['border--error']
     		];
 
