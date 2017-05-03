@@ -1,13 +1,13 @@
 import React from 'react';
-import { TabNavigator, TabView } from 'react-navigation';
+import { TabNavigator, TabBarTop } from 'react-navigation';
 import { Text, View } from 'react-native';
 import { TabCategory } from '../screens';
 import { AppTabNavigatorStyles } from '../styles/navigators';
 import { colors } from '../styles/vars';
 
-const renderTab = (routeName, focused) => {
+const renderTab = (navigation, focused) => {
 	const
-		tabName = routeName.charAt(0).toLowerCase() + routeName.slice(1),
+		tabName = navigation.state.routeName.toLowerCase(),
 		tabStyles = [
 			AppTabNavigatorStyles.tab,
 			focused && AppTabNavigatorStyles[`tab--${tabName}`]
@@ -19,7 +19,7 @@ const renderTab = (routeName, focused) => {
 
 	return (
 		<View style={tabStyles}>
-			<Text style={labelStyles}>{routeName.toUpperCase()}</Text>
+			<Text style={labelStyles}>{tabName.toUpperCase()}</Text>
 		</View>
 	);
 }
@@ -27,26 +27,26 @@ const renderTab = (routeName, focused) => {
 const AppTabNavigator = TabNavigator({
 	Now: {
 		screen: TabCategory,
-		navigationOptions: {
-			tabBarLabel: ({route, focused}) => renderTab(route.routeName, focused)
-		}
+		navigationOptions: ({ navigation }) => ({
+			tabBarLabel: ({ focused }) => renderTab(navigation, focused)
+		})
 	},
 	Later: {
 		screen: TabCategory,
-		navigationOptions: {
-			tabBarLabel: ({route, focused}) => renderTab(route.routeName, focused)
-		}
+		navigationOptions: ({ navigation }) => ({
+			tabBarLabel: ({ focused }) => renderTab(navigation, focused)
+		})
 	},
 	Someday: {
 		screen: TabCategory,
-		navigationOptions: {
-			tabBarLabel: ({route, focused}) => renderTab(route.routeName, focused)
-		}
+		navigationOptions: ({ navigation }) => ({
+			tabBarLabel: ({ focused }) => renderTab(navigation, focused)
+		})
 	}
 },{
 	animationEnabled: true,
 	swipeEnabled: false,
-	tabBarComponent: TabView.TabBarTop,
+	tabBarComponent: TabBarTop,
 	tabBarPosition: 'top',
 	tabBarOptions: {
 		pressOpacity: 1,

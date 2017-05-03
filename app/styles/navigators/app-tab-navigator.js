@@ -3,7 +3,11 @@ import { colors, fontSizes, fontWeights, margins } from '../vars';
 
 const AppTabNavigatorStyles = StyleSheet.create({
 	tabBar: {
-		backgroundColor: colors.white
+		backgroundColor: colors.white,
+		borderBottomWidth: 1,
+		borderBottomColor: colors.lightGray,
+		elevation: 0,
+		shadowOpacity: 0
 	},
 	indicator: {
 		opacity: 0
@@ -12,6 +16,7 @@ const AppTabNavigatorStyles = StyleSheet.create({
 	// Tab Styles
 	tab: {
 		marginVertical: margins.xsmall,
+		alignSelf: 'center',
 		borderBottomWidth: 2,
 		borderBottomColor: colors.white
 	},

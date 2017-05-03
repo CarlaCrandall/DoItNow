@@ -12,22 +12,27 @@ class App extends Component {
         BackAndroid.addEventListener('backPress', () => this.handleBackPress(this.props));
     }
 
+    componentWillReceiveProps({ navigation, SWIPEOUT_TASK }) {
+        const
+            currentRoute = this.props.navigation.currentRoute,
+            nextRoute = navigation.currentRoute;
+
+        // Close any open swipeout tasks when navigating
+        if (currentRoute !== nextRoute) {
+            SWIPEOUT_TASK(null);
+        }
+    }
+
     componentWillUnmount() {
         BackAndroid.removeEventListener('backPress');
     }
 
     handleBackPress({dispatch, navigation}) {
         // Close the app if no route to go back to
-        if (navigation.index === 0) {
-            return false;
-        }
+        if (navigation.index === 0) return false;
 
         dispatch(NavigationActions.back());
         return true;
-    }
-
-    handleNavigationStateChange({SWIPEOUT_TASK}) {
-        SWIPEOUT_TASK(null);
     }
 
     render() {
@@ -40,7 +45,6 @@ class App extends Component {
             	<AppNavigator
                     screenProps={{...tasks, ...actionProps}}
                     navigation={navigationHelpers}
-                    onNavigationStateChange={(prevState, currentState) => this.handleNavigationStateChange(actionProps) }
                 />
             </View>
         );
