@@ -21,13 +21,13 @@ const CheckboxGroupStyles = StyleSheet.create({
 		fontSize: fontSizes.large
 	},
 	'label--error': {
-		color: colors.red
+		color: colors.important
 	},
 
 	// Error Styles
 	error: {
 		paddingTop: margins.small,
-		color: colors.red,
+		color: colors.important,
 		fontSize: fontSizes.medium
 	}
 });

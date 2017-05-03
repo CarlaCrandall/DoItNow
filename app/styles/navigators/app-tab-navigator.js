@@ -16,13 +16,13 @@ const AppTabNavigatorStyles = StyleSheet.create({
 		borderBottomColor: colors.white
 	},
 	'tab--now': {
-		borderBottomColor: colors.red
+		borderBottomColor: colors.now
 	},
 	'tab--later': {
-		borderBottomColor: colors.orange
+		borderBottomColor: colors.later
 	},
 	'tab--someday': {
-		borderBottomColor: colors.blue
+		borderBottomColor: colors.someday
 	},
 
 	// Label Styles
@@ -33,13 +33,13 @@ const AppTabNavigatorStyles = StyleSheet.create({
 		fontWeight: fontWeights.bold
 	},
 	'label--now': {
-		color: colors.red
+		color: colors.now
 	},
 	'label--later': {
-		color: colors.orange
+		color: colors.later
 	},
 	'label--someday': {
-		color: colors.blue
+		color: colors.someday
 	}
 });
 

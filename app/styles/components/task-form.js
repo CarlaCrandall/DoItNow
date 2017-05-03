@@ -34,8 +34,8 @@ const TaskFormStyles = StyleSheet.create({
 	},
 
 	saveButton: {
-		backgroundColor: colors.blue,
-		borderColor: colors.blue
+		backgroundColor: colors.primary,
+		borderColor: colors.primary
 	},
 	saveButtonIcon: {
 		color: colors.white
@@ -46,13 +46,13 @@ const TaskFormStyles = StyleSheet.create({
 
 	deleteButton: {
 		backgroundColor: colors.white,
-		borderColor: colors.red
+		borderColor: colors.important
 	},
 	deleteButtonIcon: {
-		color: colors.red
+		color: colors.important
 	},
 	deleteButtonText: {
-		color: colors.red
+		color: colors.important
 	}
 });
 

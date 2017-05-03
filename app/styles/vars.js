@@ -3,11 +3,12 @@ export const colors = {
 	lightGray: '#E0E0E0',
 	mediumGray: '#9E9E9E',
 	darkGray: '#424242',
-	fadedRed: '#EF9A9A',
-	red: '#b71C1C',
-	orange: '#FF9800',
-	blue: '#1976D2',
-	green: '#27AE60'
+	important: '#B71C1C',
+	importantFaded: '#EF9A9A',
+	now: '#B71C1C',
+	later: '#F57C00',
+	someday: '#1565C0',
+	primary: '#26A69A'
 };
 
 export const fontSizes = {

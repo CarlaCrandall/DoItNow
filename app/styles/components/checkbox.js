@@ -16,8 +16,8 @@ const CheckboxStyles = StyleSheet.create({
 		borderWidth: 1
 	},
 	'box--checked': {
-		backgroundColor: colors.blue,
-		borderColor: colors.blue
+		backgroundColor: colors.primary,
+		borderColor: colors.primary
 	},
 
 	// TEXT STYLES

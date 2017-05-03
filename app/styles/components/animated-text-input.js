@@ -20,7 +20,7 @@ const AnimatedTextInputStyles = StyleSheet.create({
 		borderBottomColor: colors.lightGray
 	},
 	'inputContainer--error': {
-		borderBottomColor: colors.fadedRed
+		borderBottomColor: colors.importantFaded
 	},
 
 	// Input Styles
@@ -34,7 +34,7 @@ const AnimatedTextInputStyles = StyleSheet.create({
 		fontSize: fontSizes.large
 	},
 	'input--error': {
-		color: colors.red
+		color: colors.important
 	},
 
 	// Label Styles
@@ -60,7 +60,7 @@ const AnimatedTextInputStyles = StyleSheet.create({
 		fontWeight: fontWeights.bold
 	},
 	'label--error': {
-		color: colors.red
+		color: colors.important
 	},
 
 	// Border Styles
@@ -69,16 +69,19 @@ const AnimatedTextInputStyles = StyleSheet.create({
 		bottom: -3,
 		left: 0,
 		height: 3,
-		backgroundColor: colors.blue
+		backgroundColor: colors.primary
+	},
+	'border--active': {
+		right: 0
 	},
 	'border--error': {
-		backgroundColor: colors.red
+		backgroundColor: colors.important
 	},
 
 	// Error Styles
 	error: {
 		height: errorHeight,
-		color: colors.red,
+		color: colors.important,
 		fontSize: fontSizes.medium
 	}
 });

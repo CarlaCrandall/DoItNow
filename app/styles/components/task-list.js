@@ -13,13 +13,13 @@ const TaskListStyles = StyleSheet.create({
 		fontWeight: fontWeights.bold
 	},
 	'message--now': {
-		color: colors.red
+		color: colors.now
 	},
 	'message--later': {
-		color: colors.orange
+		color: colors.later
 	},
 	'message--someday': {
-		color: colors.blue
+		color: colors.someday
 	}
 });
 

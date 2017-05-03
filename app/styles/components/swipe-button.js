@@ -22,7 +22,7 @@ const SwipeButtonStyles = StyleSheet.create({
 		color: colors.darkGray
 	},
 	'swipeText--delete': {
-		color: colors.red
+		color: colors.important
 	},
 
 	// ICON STYLES
@@ -36,7 +36,7 @@ const SwipeButtonStyles = StyleSheet.create({
 		color: colors.darkGray
 	},
 	'swipeIcon--delete': {
-		color: colors.red
+		color: colors.important
 	}
 });
 

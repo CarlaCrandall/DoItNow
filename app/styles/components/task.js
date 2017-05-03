@@ -17,22 +17,22 @@ const TaskStyles = StyleSheet.create({
 		borderRadius: iconSizes.medium / 4
 	},
 	'box--now': {
-		borderColor: colors.red
+		borderColor: colors.now
 	},
 	'box--now--completed': {
-		backgroundColor: colors.red
+		backgroundColor: colors.now
 	},
 	'box--later': {
-		borderColor: colors.orange
+		borderColor: colors.later
 	},
 	'box--later--completed': {
-		backgroundColor: colors.orange
+		backgroundColor: colors.later
 	},
 	'box--someday': {
-		borderColor: colors.blue
+		borderColor: colors.someday
 	},
 	'box--someday--completed': {
-		backgroundColor: colors.blue
+		backgroundColor: colors.someday
 	},
 
 	// Text Styles
@@ -40,13 +40,13 @@ const TaskStyles = StyleSheet.create({
 		fontSize: fontSizes.medium
 	},
 	'text--now': {
-		color: colors.red
+		color: colors.now
 	},
 	'text--later': {
-		color: colors.orange
+		color: colors.later
 	},
 	'text--someday': {
-		color: colors.blue
+		color: colors.someday
 	},
 	'text--completed': {
 		textDecorationLine: 'line-through'
