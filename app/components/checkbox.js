@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import * as Utilities from '../utils';
 import { CheckboxStyles } from '../styles/components';
 import { iconSizes } from '../styles/vars';
 
@@ -23,7 +24,6 @@ export default class Checkbox extends Component {
 
     render() {
     	const
-    		text = this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1),
     		boxStyles = [
     			CheckboxStyles.box,
     			this.state.checked && CheckboxStyles['box--checked']
@@ -40,7 +40,7 @@ export default class Checkbox extends Component {
 		return (
 			<TouchableOpacity style={boxStyles} onPress={() => this.handlePress()}>
 				<Icon name={this.props.icon} size={iconSizes.medium} style={iconStyles} />
-				<Text style={textStyles}>{text}</Text>
+				<Text style={textStyles}>{Utilities.capitalize(this.props.name)}</Text>
 			</TouchableOpacity>
 		);
     }

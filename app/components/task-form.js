@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { AnimatedTextInput, CheckboxGroup, DeleteConfirmation } from './index';
 import validate from '../validation/add-edit-task';
 import { TaskFormStyles } from '../styles/components';
+import * as Utilities from '../utils';
 import { colors, iconSizes } from '../styles/vars';
 
 class TaskForm extends Component {
@@ -78,13 +79,12 @@ class TaskForm extends Component {
 		const
 			buttonStyles = [TaskFormStyles.button, TaskFormStyles[`${btnType}Button`]],
 			iconStyles =[TaskFormStyles.buttonIcon, TaskFormStyles[`${btnType}ButtonIcon`]],
-			textStyles =[TaskFormStyles.buttonText, TaskFormStyles[`${btnType}ButtonText`]],
-			btnText = btnType.charAt(0).toUpperCase() + btnType.slice(1);
+			textStyles =[TaskFormStyles.buttonText, TaskFormStyles[`${btnType}ButtonText`]];
 
 		return (
 			<TouchableOpacity style={buttonStyles} onPress={() => onPress()}>
 				<Icon name={icon} size={iconSizes.medium} style={iconStyles} />
-				<Text style={textStyles}>{btnText}</Text>
+				<Text style={textStyles}>{Utilities.capitalize(btnType)}</Text>
 			</TouchableOpacity>
 		);
 	}

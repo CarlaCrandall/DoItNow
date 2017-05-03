@@ -3,6 +3,7 @@ import { Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { DeleteConfirmation, SwipeButton, SwipeoutExtended, Task } from './';
 import { TaskRowStyles } from '../styles/components';
+import * as Utilities from '../utils';
 
 
 export default class TaskRow extends PureComponent {
@@ -22,8 +23,6 @@ export default class TaskRow extends PureComponent {
 	}
 
 	renderButton(btnType, btnIcon) {
-		const btnText = btnType.charAt(0).toUpperCase() + btnType.slice(1);
-
 		return (
 			<SwipeButton type={btnType} icon={btnIcon} />
 		);
