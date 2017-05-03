@@ -1,24 +1,15 @@
 import React, { PureComponent } from 'react';
-import { Alert, Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Task, SwipeButton, SwipeoutExtended } from './';
+import { DeleteConfirmation, SwipeButton, SwipeoutExtended, Task } from './';
 import { TaskRowStyles } from '../styles/components';
 
 
 export default class TaskRow extends PureComponent {
 
 	onDelete() {
-		const
-			title = 'Delete Task',
-			message = 'Are you sure you want to permanently delete this task?',
-			cancelButton = { text: 'Cancel', style: 'cancel' },
-			deleteButton = {
-				text: 'Delete',
-				style: 'destructive',
-				onPress: () => this.props.DELETE_TASK(this.props.task.id)
-			};
-
-		Alert.alert(title, message, [cancelButton, deleteButton]);
+		const deleteOnPress = () => this.props.DELETE_TASK(this.props.task.id)
+		DeleteConfirmation.alert(deleteOnPress);
 	}
 
 	onEdit() {

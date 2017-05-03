@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { Alert, View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { AnimatedTextInput, CheckboxGroup } from './index';
+import { AnimatedTextInput, CheckboxGroup, DeleteConfirmation } from './index';
 import validate from '../validation/add-edit-task';
 import { TaskFormStyles } from '../styles/components';
 import { colors, iconSizes } from '../styles/vars';
@@ -28,17 +28,8 @@ class TaskForm extends Component {
 	}
 
 	handleDelete() {
-		const
-			title = 'Delete Task',
-			message = 'Are you sure you want to permanently delete this task?',
-			cancelButton = { text: 'Cancel', style: 'cancel' },
-			deleteButton = {
-				text: 'Delete',
-				style: 'destructive',
-				onPress: () => this.deleteTask()
-			};
-
-		Alert.alert(title, message, [cancelButton, deleteButton]);
+		const deleteOnPress = () => this.deleteTask();
+		DeleteConfirmation.alert(deleteOnPress);
 	}
 
 	deleteTask() {
