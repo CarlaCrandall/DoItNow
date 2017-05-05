@@ -1,13 +1,6 @@
 const initialState = {
     swipeoutTask: null,
-    list: [
-        { id: 0, name: 'Pay electric bill', list: 'now', status: 'complete' },
-        { id: 1, name: 'Call plumber regarding leak', list: 'now', status: 'active'  },
-        { id: 2, name: 'Schedule appointment with dentist', list: 'later', status: 'active'  },
-        { id: 3, name: 'Clean out fridge', list: 'someday', status: 'active'  },
-        { id: 4, name: 'Buy birthday present for mom', list: 'later', status: 'active'  },
-        { id: 5, name: 'Call mom', list: 'now', status: 'active' },
-    ]
+    list: []
 };
 
 const tasks = (state = initialState, action) => {
