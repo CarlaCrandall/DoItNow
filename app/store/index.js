@@ -6,6 +6,10 @@ import reducers from '../reducers';
 const store = createStore(reducers, autoRehydrate());
 
 // Persist redux state with redux-persist
-persistStore(store, { storage: AsyncStorage });
+persistStore(store, {
+	storage: AsyncStorage,
+	whitelist: ['tasks']
+});
+
 
 export default store;
