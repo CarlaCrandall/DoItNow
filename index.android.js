@@ -14,4 +14,4 @@ const DoItNow = () => (
     </Provider>
 );
 
-AppRegistry.registerComponent('DoItNow', () => DoItNow);
+export default AppRegistry.registerComponent('DoItNow', () => DoItNow);
