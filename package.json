@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "test-coverage": "jest --coverage"
   },
   "dependencies": {
     "babel-preset-react-native-stage-0": "^1.0.1",
@@ -31,6 +32,11 @@
     ],
     "setupFiles": [
       "./jest/setup.js"
+    ],
+    "collectCoverageFrom": [
+      "app/**/*.{js,jsx}",
+      "!app/styles/**/*",
+      "!**/index.js"
     ]
   }
 }
