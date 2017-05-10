@@ -75,7 +75,6 @@ class TaskForm extends Component {
 			};
 
 		this.editOrAddTask(task);
-		// goBack();
 
 		this.setState({
 			saving: true,
