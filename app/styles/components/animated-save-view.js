@@ -8,23 +8,34 @@ const AnimatedTextInputStyles = StyleSheet.create({
 		bottom: 0,
 		left: -(margins.small),
 		right: -(margins.small),
+		paddingHorizontal: margins.large,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: colors.primary
+		backgroundColor: colors.white
 	},
 
 	icon: {
 		marginBottom: margins.medium,
-		color: colors.white
+		color: colors.primary
 	},
 
 	text: {
-		position: 'relative',
-		color: colors.white,
-		fontSize: fontSizes.medium
+		color: colors.darkGray,
+		fontSize: fontSizes.medium,
+		lineHeight: fontSizes.large,
+		textAlign: 'center'
 	},
 	'text--bold': {
 		fontWeight: fontWeights.bold
+	},
+	'text--now': {
+		color: colors.now
+	},
+	'text--later': {
+		color: colors.later
+	},
+	'text--someday': {
+		color: colors.someday
 	}
 });
 

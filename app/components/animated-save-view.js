@@ -25,7 +25,7 @@ export default class AnimatedSaveView extends Component {
 
 			// Animate overlay opacity, icon size, and text position
 			Animated.sequence([
-				Animated.timing(this.state.overlayOpacity, { toValue: 0.85, duration: 150 }),
+				Animated.timing(this.state.overlayOpacity, { toValue: 1, duration: 150 }),
 				Animated.timing(this.state.iconSize, { toValue: 72, duration: 150, easing: Easing.bounce }),
 				Animated.delay(200),
 				Animated.parallel([textOpacityAnimation, textPositionAnimation]),
@@ -38,12 +38,13 @@ export default class AnimatedSaveView extends Component {
 
     render() {
     	const
-    		AnimatedIcon = Animated.createAnimatedComponent(Icon)
+    		AnimatedIcon = Animated.createAnimatedComponent(Icon),
     		overlayOpacity = { opacity: this.state.overlayOpacity },
     		iconSize = { fontSize: this.state.iconSize },
     		textOpacity = { opacity: this.state.textOpacity },
     		textPosition = { transform: [{ translateY: this.state.textPosition }] },
-    		boldText = AnimatedSaveViewStyles['text--bold'];
+    		boldText = AnimatedSaveViewStyles['text--bold'],
+    		coloredText = AnimatedSaveViewStyles[`text--${this.props.listType}`];
 
         return (
 			<Animated.View
@@ -53,7 +54,8 @@ export default class AnimatedSaveView extends Component {
 				<AnimatedIcon name="check-circle" style={[AnimatedSaveViewStyles.icon, iconSize]} />
 				<Animated.Text style={[AnimatedSaveViewStyles.text, textOpacity, textPosition]}>
 					<Text style={boldText}>{this.props.taskName} </Text>
-					has been saved to your <Text style={boldText}>{this.props.listType.toUpperCase()} </Text>
+					has been saved to your
+					<Text style={[boldText, coloredText]}> {this.props.listType.toUpperCase()} </Text>
 					list
 				</Animated.Text>
 			</Animated.View>
