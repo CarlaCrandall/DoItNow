@@ -1,3 +1,4 @@
+export AnimatedSaveView from './animated-save-view';
 export AnimatedTextInput from './animated-text-input';
 export Checkbox from './checkbox';
 export CheckboxGroup from './checkbox-group';

@@ -1,3 +1,4 @@
+export AnimatedSaveViewStyles from './animated-save-view';
 export AnimatedTextInputStyles from './animated-text-input';
 export CheckboxStyles from './checkbox';
 export CheckboxGroupStyles from './checkbox-group';
