@@ -42,7 +42,8 @@ export default class AnimatedSaveView extends Component {
     		overlayOpacity = { opacity: this.state.overlayOpacity },
     		iconSize = { fontSize: this.state.iconSize },
     		textOpacity = { opacity: this.state.textOpacity },
-    		textPosition = { transform: [{ translateY: this.state.textPosition }] };
+    		textPosition = { transform: [{ translateY: this.state.textPosition }] },
+    		boldText = AnimatedSaveViewStyles['text--bold'];
 
         return (
 			<Animated.View
@@ -51,7 +52,9 @@ export default class AnimatedSaveView extends Component {
 			>
 				<AnimatedIcon name="check-circle" style={[AnimatedSaveViewStyles.icon, iconSize]} />
 				<Animated.Text style={[AnimatedSaveViewStyles.text, textOpacity, textPosition]}>
-					{this.props.taskName} has been saved to your {this.props.listType.toUpperCase()} list
+					<Text style={boldText}>{this.props.taskName} </Text>
+					has been saved to your <Text style={boldText}>{this.props.listType.toUpperCase()} </Text>
+					list
 				</Animated.Text>
 			</Animated.View>
         );
