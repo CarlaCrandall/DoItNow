@@ -3,13 +3,23 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { AnimatedTextInput, CheckboxGroup, DeleteConfirmation } from './index';
+import { AnimatedSaveView, AnimatedTextInput, CheckboxGroup, DeleteConfirmation } from './index';
 import validate from '../validation/add-edit-task';
 import { TaskFormStyles } from '../styles/components';
 import * as Utilities from '../utils';
 import { colors, iconSizes } from '../styles/vars';
 
 class TaskForm extends Component {
+
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			saving: false,
+			listType: '',
+			taskName: ''
+		};
+	}
 
 	getId() {
 		return this.props.id || '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
@@ -55,16 +65,23 @@ class TaskForm extends Component {
 	handleSave(values) {
 		const
 			{ goBack } = this.props.navigation,
+			taskName = values.taskName,
 			listType = this.getListTypeFromValues(values.descriptors),
 			task = {
 				id: this.getId(),
-				name: values.taskName,
+				name: taskName,
 				list: listType,
 				status: 'active'
 			};
 
 		this.editOrAddTask(task);
-		goBack();
+		// goBack();
+
+		this.setState({
+			saving: true,
+			taskName,
+			listType
+		});
 	}
 
 	renderInput({ input, meta }) {
@@ -92,6 +109,7 @@ class TaskForm extends Component {
     render() {
     	const
     		{ mode, handleSubmit } = this.props,
+    		{ goBack } = this.props.navigation,
     		descriptorsLabel = "This task is...",
     		descriptors = [
 				{ name: 'urgent', icon: 'clock-o' },
@@ -107,6 +125,8 @@ class TaskForm extends Component {
 					{this.renderButton('save', 'check-circle', handleSubmit((values) => this.handleSave(values)))}
 					{mode === 'edit' && this.renderButton('delete', 'trash', () => this.handleDelete())}
 				</View>
+
+				<AnimatedSaveView {...this.state} goBack={goBack} />
         	</View>
         );
     }
