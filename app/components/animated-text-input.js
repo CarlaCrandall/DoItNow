@@ -35,11 +35,6 @@ export default class AnimatedTextInput extends Component {
 		this.setState({ animatedValue: new Animated.Value(width) });
 	}
 
-	onChangeText(text) {
-		const trimmedText = text.trim();
-		this.props.onChange && this.props.onChange(trimmedText);
-	}
-
 	toggleFocus(isFocused) {
 		// Only animate the bottom border if input is empty
 		if (!this.state.hasValue) {
@@ -87,7 +82,7 @@ export default class AnimatedTextInput extends Component {
 						value={this.props.value}
 						onFocus={() => this.toggleFocus(true)}
 						onBlur={() => this.toggleFocus(false)}
-						onChangeText={(text) => this.onChangeText(text)}
+						onChangeText={this.props.onChange}
 					/>
 					<View pointerEvents="none" style={labelContainerStyles}>
 						<Text style={labelStyles}>{this.props.label}</Text>
