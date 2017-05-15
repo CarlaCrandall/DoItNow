@@ -18,7 +18,7 @@ class App extends Component {
             nextRoute = navigation.currentRoute;
 
         // Close any open swipeout tasks when navigating
-        if (currentRoute !== nextRoute) {
+        if (currentRoute !== nextRoute && this.props.tasks.swipeoutTask) {
             SWIPEOUT_TASK(null);
         }
     }
