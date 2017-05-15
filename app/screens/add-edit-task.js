@@ -28,8 +28,7 @@ export default class AddEditTask extends Component {
     		{ DELETE_TASK, ADD_TASK, EDIT_TASK } = this.props.screenProps,
     		initialValues = {
     			taskName: name || '',
-    			descriptors: this.getValuesFromListType(list),
-    			...this.getValuesFromListType(list)
+    			descriptors: this.getValuesFromListType(list)
     		};
 
         return (
