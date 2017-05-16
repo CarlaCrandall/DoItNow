@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { ScrollView } from 'react-native';
 import { ExpandableList, TaskList } from './';
 
-export default class TaskCategory extends Component {
+export default class TaskCategory extends PureComponent {
 
     render() {
         const

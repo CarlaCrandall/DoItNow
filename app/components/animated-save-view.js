@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Animated, Easing, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { AnimatedSaveViewStyles } from '../styles/components';
 
 
-export default class AnimatedSaveView extends Component {
+export default class AnimatedSaveView extends PureComponent {
 
 	constructor(props: OverlayType) {
 		super(props);

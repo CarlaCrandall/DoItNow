@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { FlatList, Text, View } from 'react-native';
 import { TaskRow } from './';
 import { TaskListStyles } from '../styles/components';
 
-export default class TaskList extends Component {
+export default class TaskList extends PureComponent {
 
     renderItem({item}) {
         return (
@@ -23,7 +23,7 @@ export default class TaskList extends Component {
             <FlatList
                 data={this.props.data}
                 removeClippedSubviews={false}
-                keyExtractor={(item, index) => `${item.name}_${index}`}
+                keyExtractor={(item, index) => `${item.name}_${item.id}`}
                 renderItem={item => this.renderItem(item)}
             />
         );
