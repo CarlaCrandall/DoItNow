@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { Keyboard, TouchableWithoutFeedback, View } from 'react-native';
 import { TaskForm } from '../components';
 import { AddEditTaskStyles } from '../styles/containers';
 
@@ -32,17 +32,19 @@ export default class AddEditTask extends Component {
     		};
 
         return (
-        	<View style={AddEditTaskStyles.container}>
-				<TaskForm
-					id={id}
-					mode={mode}
-					initialValues={initialValues}
-					ADD_TASK={ADD_TASK}
-					EDIT_TASK={EDIT_TASK}
-					DELETE_TASK={DELETE_TASK}
-					navigation={this.props.navigation}
-				/>
-        	</View>
+        	<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+	        	<View style={AddEditTaskStyles.container}>
+					<TaskForm
+						id={id}
+						mode={mode}
+						initialValues={initialValues}
+						ADD_TASK={ADD_TASK}
+						EDIT_TASK={EDIT_TASK}
+						DELETE_TASK={DELETE_TASK}
+						navigation={this.props.navigation}
+					/>
+	        	</View>
+        	</TouchableWithoutFeedback>
         );
     }
 }

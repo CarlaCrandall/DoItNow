@@ -27,11 +27,12 @@ export default class CheckboxGroup extends Component {
 		this.props.onChange && this.props.onChange(value);
 	}
 
-	renderCheckbox(checkbox, index) {
+	renderCheckbox(checkbox, index, hasError) {
 		return (
 			<Checkbox
 				key={index}
 				checked={this.state.value.indexOf(checkbox.name) > -1}
+				hasError={hasError}
 				onChange={(name, checked) => this.onChange(name, checked)}
 				{...checkbox}
 			/>
@@ -54,7 +55,7 @@ export default class CheckboxGroup extends Component {
         	<View style={CheckboxGroupStyles.container}>
         		<Text style={labelStyles}>{this.props.label}</Text>
         		<View style={CheckboxGroupStyles.row}>
-        			{this.props.checkboxes.map((checkbox, index) => this.renderCheckbox(checkbox, index))}
+        			{this.props.checkboxes.map((checkbox, index) => this.renderCheckbox(checkbox, index, hasError))}
         		</View>
 				{hasError && this.renderError()}
         	</View>

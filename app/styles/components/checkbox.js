@@ -19,6 +19,9 @@ const CheckboxStyles = StyleSheet.create({
 		backgroundColor: colors.primary,
 		borderColor: colors.primary
 	},
+	'box--error': {
+		borderColor: colors.important
+	},
 
 	// TEXT STYLES
 	text: {
@@ -28,6 +31,9 @@ const CheckboxStyles = StyleSheet.create({
 	'text--checked': {
 		color: colors.white
 	},
+	'text--error': {
+		color: colors.important
+	},
 
 	// ICON STYLES
 	icon: {
@@ -36,6 +42,9 @@ const CheckboxStyles = StyleSheet.create({
 	},
 	'icon--checked': {
 		color: colors.white
+	},
+	'icon--error': {
+		color: colors.important
 	}
 });
 

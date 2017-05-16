@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Keyboard, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as Utilities from '../utils';
 import { CheckboxStyles } from '../styles/components';
@@ -18,6 +18,7 @@ export default class Checkbox extends Component {
 	handlePress() {
 		const checked = !this.state.checked;
 
+		Keyboard.dismiss();
 		this.setState({ checked });
 		this.props.onChange && this.props.onChange(this.props.name, checked);
 	}
@@ -26,15 +27,18 @@ export default class Checkbox extends Component {
     	const
     		boxStyles = [
     			CheckboxStyles.box,
-    			this.state.checked && CheckboxStyles['box--checked']
+    			this.state.checked && CheckboxStyles['box--checked'],
+    			this.props.hasError && CheckboxStyles['box--error']
     		],
     		textStyles = [
 				CheckboxStyles.text,
-				this.state.checked && CheckboxStyles['text--checked']
+				this.state.checked && CheckboxStyles['text--checked'],
+				this.props.hasError && CheckboxStyles['text--error']
     		],
     		iconStyles = [
 				CheckboxStyles.icon,
-				this.state.checked && CheckboxStyles['icon--checked']
+				this.state.checked && CheckboxStyles['icon--checked'],
+				this.props.hasError && CheckboxStyles['icon--error']
     		];
 
 		return (
