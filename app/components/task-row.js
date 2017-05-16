@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { DeleteConfirmation, SwipeButton, SwipeoutExtended, Task } from './';
+import Swipeout from 'react-native-swipeout';
+import { DeleteConfirmation, SwipeButton, Task } from './';
 import { TaskRowStyles } from '../styles/components';
 import * as Utilities from '../utils';
 
@@ -43,13 +44,14 @@ export default class TaskRow extends PureComponent {
 			}];
 
         return (
-			<SwipeoutExtended
+			<Swipeout
 				rowID={this.props.task.id}
 				right={swipeButtons}
 				style={TaskRowStyles.swipeout}
 				buttonWidth={Dimensions.get('window').width / 3}
 				close={this.props.task.id !== this.props.swipeoutTask}
 				autoClose={true}
+				sensitivity={100}
 				onOpen={(sectionID, rowID) => this.props.SWIPEOUT_TASK(rowID)}
 			>
 				<Task
@@ -58,7 +60,7 @@ export default class TaskRow extends PureComponent {
 					style={TaskRowStyles.row}
 					TOGGLE_TASK={this.props.TOGGLE_TASK}
 				/>
-			</SwipeoutExtended>
+			</Swipeout>
         );
     }
 }

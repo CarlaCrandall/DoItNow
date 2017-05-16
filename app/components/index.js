@@ -5,7 +5,6 @@ export CheckboxGroup from './checkbox-group';
 export DeleteConfirmation from './delete-confirmation';
 export ExpandableList from './expandable-list';
 export SwipeButton from './swipe-button';
-export SwipeoutExtended from './swipeout-extended';
 export Task from './task';
 export TaskCategory from './task-category';
 export TaskForm from './task-form';
