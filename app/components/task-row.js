@@ -30,18 +30,15 @@ export default class TaskRow extends PureComponent {
 	}
 
     render() {
-    	const
-	    	toggleAction = this.props.task.status === 'active' ? 'complete' : 'uncheck',
-			toggleIcon = this.props.task.status === 'active' ? 'check' : 'check-circle-o',
-			swipeButtons = [{
-				component: this.renderButton('cancel', 'ban')
-			}, {
-				component: this.renderButton('edit', 'pencil'),
-				onPress: () => this.onEdit()
-			}, {
-				component: this.renderButton('delete', 'trash'),
-				onPress: () => this.onDelete()
-			}];
+    	const swipeButtons = [{
+			component: this.renderButton('cancel', 'ban')
+		}, {
+			component: this.renderButton('edit', 'pencil'),
+			onPress: () => this.onEdit()
+		}, {
+			component: this.renderButton('delete', 'trash'),
+			onPress: () => this.onDelete()
+		}];
 
         return (
 			<Swipeout
