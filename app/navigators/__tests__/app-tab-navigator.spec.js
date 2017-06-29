@@ -10,7 +10,7 @@ describe('AppTabNavigator', () => {
         renderer.render(<AppTabNavigator {...props} />);
 
         return {
-            instance: renderer._instance._instance,
+            instance: renderer.getMountedInstance(),
             output: renderer.getRenderOutput()
         };
     };

@@ -10,7 +10,7 @@ describe('AppNavigator', () => {
         renderer.render(<AppNavigator {...props} />);
 
         return {
-            instance: renderer._instance._instance,
+            instance: renderer.getMountedInstance(),
             output: renderer.getRenderOutput()
         };
     };
