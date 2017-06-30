@@ -9,7 +9,7 @@ import { TaskFormStyles } from '../styles/components';
 import * as Utilities from '../utils';
 import { colors, iconSizes } from '../styles/vars';
 
-class TaskForm extends Component {
+export class TaskForm extends Component {
 
 	constructor(props) {
 		super(props);
@@ -131,7 +131,7 @@ class TaskForm extends Component {
     }
 }
 
-TaskForm = reduxForm({ form: 'TaskForm', validate: validate })(TaskForm)
-TaskForm = connect((state, props) => ({ initialValues: props.initialValues }))(TaskForm)
+let ConnectedTaskForm = reduxForm({ form: 'TaskForm', validate: validate })(TaskForm);
+ConnectedTaskForm = connect((state, props) => ({ initialValues: props.initialValues }))(ConnectedTaskForm);
 
-export default TaskForm;
+export default ConnectedTaskForm;

@@ -7,6 +7,6 @@ export ExpandableList from './expandable-list';
 export SwipeButton from './swipe-button';
 export Task from './task';
 export TaskCategory from './task-category';
-export TaskForm from './task-form';
+export ConnectedTaskForm from './task-form';
 export TaskList from './task-list';
 export TaskRow from './task-row';

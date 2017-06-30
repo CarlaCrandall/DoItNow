@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Keyboard, TouchableWithoutFeedback, View } from 'react-native';
-import { TaskForm } from '../components';
+import { ConnectedTaskForm } from '../components';
 import { AddEditTaskStyles } from '../styles/containers';
 
 export default class AddEditTask extends Component {
@@ -34,7 +34,7 @@ export default class AddEditTask extends Component {
         return (
         	<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 	        	<View style={AddEditTaskStyles.container}>
-					<TaskForm
+					<ConnectedTaskForm
 						id={id}
 						mode={mode}
 						initialValues={initialValues}
