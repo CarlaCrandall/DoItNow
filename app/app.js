@@ -7,7 +7,7 @@ import * as actions from './actions';
 import { AppContainerStyles } from './styles/containers';
 import { AppNavigator } from './navigators';
 
-class App extends Component {
+export class App extends Component {
     componentDidMount() {
         BackAndroid.addEventListener('backPress', () => this.handleBackPress(this.props));
     }
@@ -61,4 +61,5 @@ const
         dispatch
     });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+let ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+export default ConnectedApp;
