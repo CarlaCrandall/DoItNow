@@ -27,7 +27,7 @@ export class App extends Component {
         BackAndroid.removeEventListener('backPress');
     }
 
-    handleBackPress({dispatch, navigation}) {
+    handleBackPress({ dispatch, navigation }) {
         // Close the app if no route to go back to
         if (navigation.index === 0) return false;
 
@@ -36,14 +36,14 @@ export class App extends Component {
     }
 
     render() {
-    	const
+        const
             { dispatch, navigation, tasks, ...actionProps } = this.props,
             navigationHelpers = addNavigationHelpers({ state: navigation, dispatch });
 
         return (
             <View style={AppContainerStyles.container}>
-            	<AppNavigator
-                    screenProps={{...tasks, ...actionProps}}
+                <AppNavigator
+                    screenProps={{ ...tasks, ...actionProps }}
                     navigation={navigationHelpers}
                 />
             </View>
@@ -61,5 +61,4 @@ const
         dispatch
     });
 
-let ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
-export default ConnectedApp;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { LayoutAnimation } from 'react-native';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { ExpandableList } from '../';
 
 describe('ExpandableList', () => {
@@ -9,7 +9,7 @@ describe('ExpandableList', () => {
         output,
         instance;
 
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<ExpandableList {...props} />);
 
@@ -52,8 +52,6 @@ describe('ExpandableList', () => {
     });
 
     it('updates the state when toggleList is called', () => {
-        const IconButton = Utils.findAllWithType(output, 'IconButton')[0];
-
         expect(instance.state.expanded).toEqual(false);
         instance.toggleList();
         expect(instance.state.expanded).toEqual(true);

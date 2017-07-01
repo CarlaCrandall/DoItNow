@@ -1,13 +1,13 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { SwipeButton } from '../';
 
 describe('SwipeButton', () => {
     let globalProps,
         component;
 
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<SwipeButton {...props} />);
 

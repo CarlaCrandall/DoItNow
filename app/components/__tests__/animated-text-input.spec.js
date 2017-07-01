@@ -1,13 +1,13 @@
 import React from 'react';
 import { Animated, LayoutAnimation } from 'react-native';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { AnimatedTextInput } from '../';
 
 describe('AnimatedTextInput', () => {
     let globalProps;
 
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<AnimatedTextInput {...props} />);
 
@@ -91,15 +91,13 @@ describe('AnimatedTextInput', () => {
     });
 
     describe('With default value', () => {
-        let output,
-            instance;
+        let output;
 
         beforeAll(() => {
             globalProps.value = 'Test default value';
 
             const component = shallowRender(globalProps);
             output = component.output;
-            instance = component.instance;
         });
 
         it('renders the TextInput with a default value', () => {
@@ -109,8 +107,7 @@ describe('AnimatedTextInput', () => {
     });
 
     describe('With error', () => {
-        let output,
-            instance;
+        let output;
 
         beforeAll(() => {
             globalProps.touched = true;
@@ -118,7 +115,6 @@ describe('AnimatedTextInput', () => {
 
             const component = shallowRender(globalProps);
             output = component.output;
-            instance = component.instance;
         });
 
         it('renders the error message', () => {

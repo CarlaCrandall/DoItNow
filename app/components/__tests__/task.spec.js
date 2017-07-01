@@ -1,13 +1,13 @@
 import React from 'react';
 import { LayoutAnimation } from 'react-native';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { Task } from '../';
 
 describe('Task', () => {
     let globalProps;
 
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<Task {...props} />);
 

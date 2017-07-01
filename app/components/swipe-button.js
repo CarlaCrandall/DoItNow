@@ -9,14 +9,14 @@ import { iconSizes } from '../styles/vars';
 export default class SwipeButton extends PureComponent {
     render() {
         const
-        	iconStyles = [SwipeButtonStyles.swipeIcon, SwipeButtonStyles[`swipeIcon--${this.props.type}`]],
-        	textStyles = [SwipeButtonStyles.swipeText, SwipeButtonStyles[`swipeText--${this.props.type}`]];
+            iconStyles = [SwipeButtonStyles.swipeIcon, SwipeButtonStyles[`swipeIcon--${this.props.type}`]],
+            textStyles = [SwipeButtonStyles.swipeText, SwipeButtonStyles[`swipeText--${this.props.type}`]];
 
-		return (
-			<View style={SwipeButtonStyles.swipeBtn}>
-				<Icon name={this.props.icon} size={iconSizes.medium} style={iconStyles} />
-				<Text style={textStyles}>{Utilities.capitalize(this.props.type)}</Text>
-			</View>
-		);
+        return (
+            <View style={SwipeButtonStyles.swipeBtn}>
+                <Icon name={this.props.icon} size={iconSizes.medium} style={iconStyles} />
+                <Text style={textStyles}>{Utilities.capitalize(this.props.type)}</Text>
+            </View>
+        );
     }
 }

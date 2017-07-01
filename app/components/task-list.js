@@ -5,7 +5,7 @@ import { TaskListStyles } from '../styles/components';
 
 export default class TaskList extends PureComponent {
 
-    renderItem({item}) {
+    renderItem({ item }) {
         return (
             <TaskRow
                 task={item}
@@ -23,7 +23,7 @@ export default class TaskList extends PureComponent {
             <FlatList
                 data={this.props.data}
                 removeClippedSubviews={false}
-                keyExtractor={(item, index) => `${item.name}_${item.id}`}
+                keyExtractor={item => `${item.name}_${item.id}`}
                 renderItem={item => this.renderItem(item)}
             />
         );

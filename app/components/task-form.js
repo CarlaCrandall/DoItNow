@@ -7,126 +7,125 @@ import { AnimatedSaveView, AnimatedTextInput, CheckboxGroup, DeleteConfirmation 
 import validate from '../validation/add-edit-task';
 import { TaskFormStyles } from '../styles/components';
 import * as Utilities from '../utils';
-import { colors, iconSizes } from '../styles/vars';
+import { iconSizes } from '../styles/vars';
 
 export class TaskForm extends Component {
 
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		this.state = {
-			saving: false,
-			listType: '',
-			taskName: ''
-		};
-	}
+        this.state = {
+            saving: false,
+            listType: '',
+            taskName: ''
+        };
+    }
 
-	getId() {
-		return this.props.id || '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
-	}
+    getId() {
+        return this.props.id || '_' + Math.random().toString(36).substr(2, 9).toUpperCase();
+    }
 
-	// Logic loosely based on / inspired by Eisenhower Matrix
-	getListTypeFromValues(descriptors) {
-		const
-			urgent = descriptors.indexOf('urgent') > -1,
-			important = descriptors.indexOf('important') > -1;
+    // Logic loosely based on / inspired by Eisenhower Matrix
+    getListTypeFromValues(descriptors) {
+        const
+            urgent = descriptors.indexOf('urgent') > -1,
+            important = descriptors.indexOf('important') > -1;
 
-		if (urgent && important) return 'now';
-		if (urgent) return 'later';
-		if (important) return 'someday';
+        if (urgent && important) return 'now';
+        if (urgent) return 'later';
+        if (important) return 'someday';
 
-		return false;
-	}
+        return false;
+    }
 
-	handleDelete() {
-		const deleteOnPress = () => this.deleteTask();
-		DeleteConfirmation.alert(deleteOnPress);
-	}
+    handleDelete() {
+        const deleteOnPress = () => this.deleteTask();
+        DeleteConfirmation.alert(deleteOnPress);
+    }
 
-	deleteTask() {
-		const
-			{ id, DELETE_TASK } = this.props,
-			{ goBack } = this.props.navigation;
+    deleteTask() {
+        const
+            { id, DELETE_TASK } = this.props,
+            { goBack } = this.props.navigation;
 
-		DELETE_TASK(id);
-		goBack();
-	}
+        DELETE_TASK(id);
+        goBack();
+    }
 
-	editOrAddTask(task) {
-		const { id, mode, ADD_TASK, EDIT_TASK } = this.props;
+    editOrAddTask(task) {
+        const { id, mode, ADD_TASK, EDIT_TASK } = this.props;
 
-		if (mode === 'edit') {
-			EDIT_TASK(id, task);
-		} else {
-			ADD_TASK(task);
-		}
-	}
+        if (mode === 'edit') {
+            EDIT_TASK(id, task);
+        }
+        else {
+            ADD_TASK(task);
+        }
+    }
 
-	handleSave(values) {
-		const
-			{ goBack } = this.props.navigation,
-			taskName = values.taskName,
-			listType = this.getListTypeFromValues(values.descriptors),
-			task = {
-				id: this.getId(),
-				name: taskName,
-				list: listType,
-				status: 'active'
-			};
+    handleSave(values) {
+        const
+            listType = this.getListTypeFromValues(values.descriptors),
+            task = {
+                id: this.getId(),
+                name: values.taskName,
+                list: listType,
+                status: 'active'
+            };
 
-		this.editOrAddTask(task);
+        this.editOrAddTask(task);
 
-		this.setState({
-			saving: true,
-			taskName,
-			listType
-		});
-	}
+        this.setState({
+            saving: true,
+            taskName: values.taskName,
+            listType
+        });
+    }
 
-	renderInput({ input, meta }) {
-		return <AnimatedTextInput {...input} {...meta} label="Task Name" />
-	}
+    renderInput({ input, meta }) {
+        return <AnimatedTextInput {...input} {...meta} label="Task Name" />;
+    }
 
-	renderCheckboxGroup({ input, meta }, label, checkboxes) {
-		return <CheckboxGroup label={label} checkboxes={checkboxes} {...input} {...meta}  />
-	}
+    renderCheckboxGroup({ input, meta }, label, checkboxes) {
+        return <CheckboxGroup label={label} checkboxes={checkboxes} {...input} {...meta} />;
+    }
 
-	renderButton(btnType, icon, onPress) {
-		const
-			buttonStyles = [TaskFormStyles.button, TaskFormStyles[`${btnType}Button`]],
-			iconStyles =[TaskFormStyles.buttonIcon, TaskFormStyles[`${btnType}ButtonIcon`]],
-			textStyles =[TaskFormStyles.buttonText, TaskFormStyles[`${btnType}ButtonText`]];
-
-		return (
-			<TouchableOpacity style={buttonStyles} onPress={() => onPress()}>
-				<Icon name={icon} size={iconSizes.medium} style={iconStyles} />
-				<Text style={textStyles}>{Utilities.capitalize(btnType)}</Text>
-			</TouchableOpacity>
-		);
-	}
-
-    render() {
-    	const
-    		{ mode, handleSubmit } = this.props,
-    		{ goBack } = this.props.navigation,
-    		descriptorsLabel = "This task is...",
-    		descriptors = [
-				{ name: 'urgent', icon: 'clock-o' },
-				{ name: 'important', icon: 'exclamation-circle' }
-	    	];
+    renderButton(btnType, icon, onPress) {
+        const
+            buttonStyles = [TaskFormStyles.button, TaskFormStyles[`${btnType}Button`]],
+            iconStyles = [TaskFormStyles.buttonIcon, TaskFormStyles[`${btnType}ButtonIcon`]],
+            textStyles = [TaskFormStyles.buttonText, TaskFormStyles[`${btnType}ButtonText`]];
 
         return (
-        	<View style={TaskFormStyles.container}>
-				<Field name="taskName" component={this.renderInput} />
-				<Field name="descriptors" component={field => this.renderCheckboxGroup(field, descriptorsLabel, descriptors)} />
+            <TouchableOpacity style={buttonStyles} onPress={() => onPress()}>
+                <Icon name={icon} size={iconSizes.medium} style={iconStyles} />
+                <Text style={textStyles}>{Utilities.capitalize(btnType)}</Text>
+            </TouchableOpacity>
+        );
+    }
 
-				<View style={TaskFormStyles.buttonContainer}>
-					{this.renderButton('save', 'check-circle', handleSubmit((values) => this.handleSave(values)))}
-					{mode === 'edit' && this.renderButton('delete', 'trash', () => this.handleDelete())}
-				</View>
+    render() {
+        const
+            { mode, handleSubmit } = this.props,
+            { goBack } = this.props.navigation,
+            descriptorsLabel = 'This task is...',
+            descriptors = [
+                { name: 'urgent', icon: 'clock-o' },
+                { name: 'important', icon: 'exclamation-circle' }
+            ];
 
-				<AnimatedSaveView {...this.state} goBack={goBack} />
-        	</View>
+        return (
+            <View style={TaskFormStyles.container}>
+                <Field name="taskName" component={this.renderInput} />
+                <Field name="descriptors" component={field => this.renderCheckboxGroup(field, descriptorsLabel, descriptors)} />
+
+                <View style={TaskFormStyles.buttonContainer}>
+                    {this.renderButton('save', 'check-circle', handleSubmit(values => this.handleSave(values)))}
+                    {mode === 'edit' && this.renderButton('delete', 'trash', () => this.handleDelete())}
+                </View>
+
+                <AnimatedSaveView {...this.state} goBack={goBack} />
+            </View>
         );
     }
 }

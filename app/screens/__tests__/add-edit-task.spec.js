@@ -1,12 +1,12 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { AddEditTask } from '../';
 
 describe('AddEditTask', () => {
     let component;
 
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<AddEditTask {...props} />);
 

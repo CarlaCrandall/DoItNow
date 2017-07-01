@@ -1,11 +1,10 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { TaskList } from '../';
 
 describe('TaskList', () => {
-
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<TaskList {...props} />);
 
@@ -59,8 +58,7 @@ describe('TaskList', () => {
 
     describe('Empty list', () => {
         let globalProps,
-            output,
-            instance;
+            output;
 
         beforeAll(() => {
             globalProps = {
@@ -70,7 +68,6 @@ describe('TaskList', () => {
 
             const component = shallowRender(globalProps);
             output = component.output;
-            instance = component.instance;
         });
 
         it('renders the message when no data is present', () => {

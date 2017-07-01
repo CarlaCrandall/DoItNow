@@ -1,11 +1,10 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { AppNavigator } from '../';
 
 describe('AppNavigator', () => {
-
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<AppNavigator {...props} />);
 
@@ -29,8 +28,8 @@ describe('AppNavigator', () => {
         beforeAll(() => {
             navigation = { navigate: jest.fn() };
             component = shallowRender().output;
-            homeOptions = component.type.routeConfigs.Home.navigationOptions({navigation});
-        })
+            homeOptions = component.type.routeConfigs.Home.navigationOptions({ navigation });
+        });
 
         it('creates the title', () => {
             expect(homeOptions.headerTitle).toEqual('Do It Now');
@@ -57,8 +56,8 @@ describe('AppNavigator', () => {
                 state: { params: { mode: 'add' } }
             };
 
-            component = shallowRender().output,
-            addTaskOptions = component.type.routeConfigs.AddEditTask.navigationOptions({navigation});
+            component = shallowRender().output;
+            addTaskOptions = component.type.routeConfigs.AddEditTask.navigationOptions({ navigation });
         });
 
         it('creates the title', () => {
@@ -86,8 +85,8 @@ describe('AppNavigator', () => {
                 state: { params: { mode: 'edit' } }
             };
 
-            component = shallowRender().output,
-            editTaskOptions = component.type.routeConfigs.AddEditTask.navigationOptions({navigation});
+            component = shallowRender().output;
+            editTaskOptions = component.type.routeConfigs.AddEditTask.navigationOptions({ navigation });
         });
 
         it('creates the title', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Animated } from 'react-native';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { AnimatedSaveView } from '../';
 
 describe('AnimatedSaveView', () => {
@@ -9,7 +9,7 @@ describe('AnimatedSaveView', () => {
         output,
         instance;
 
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<AnimatedSaveView {...props} />);
 
@@ -41,8 +41,8 @@ describe('AnimatedSaveView', () => {
     });
 
     it('renders the required components', () => {
-        const Animated = Utils.findAllWithType(output, 'AnimatedComponent');
-        expect(Animated.length).toEqual(3);
+        const AnimatedComponent = Utils.findAllWithType(output, 'AnimatedComponent');
+        expect(AnimatedComponent.length).toEqual(3);
     });
 
     it('animates the view when saving is in progress', () => {

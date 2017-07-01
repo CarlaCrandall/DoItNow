@@ -1,9 +1,7 @@
-import React from 'react';
 import { Alert } from 'react-native';
 import { DeleteConfirmation } from '../';
 
 describe('DeleteConfirmation', () => {
-
     beforeAll(() => {
         Alert.alert = jest.fn();
     });

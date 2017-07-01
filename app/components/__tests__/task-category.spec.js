@@ -1,13 +1,13 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { TaskCategory } from '../';
 
 describe('TaskCategory', () => {
     let globalProps,
         component;
 
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<TaskCategory {...props} />);
 
@@ -37,12 +37,12 @@ describe('TaskCategory', () => {
     it('renders the TaskList with the active tasks', () => {
         const TaskList = Utils.findAllWithType(component, 'TaskList');
         expect(TaskList.length).toEqual(1);
-        expect(TaskList[0].props.data).toEqual([ globalProps.data[0], globalProps.data[2] ]);
+        expect(TaskList[0].props.data).toEqual([globalProps.data[0], globalProps.data[2]]);
     });
 
     it('renders the ExpandableList with the completed tasks', () => {
         const ExpandableList = Utils.findAllWithType(component, 'ExpandableList');
         expect(ExpandableList.length).toEqual(1);
-        expect(ExpandableList[0].props.data).toEqual([ globalProps.data[1] ])
+        expect(ExpandableList[0].props.data).toEqual([globalProps.data[1]]);
     });
 });

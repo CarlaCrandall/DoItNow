@@ -1,7 +1,6 @@
 import React from 'react';
-import { LayoutAnimation } from 'react-native';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { DeleteConfirmation, TaskRow } from '../';
 
 describe('TaskRow', () => {
@@ -9,7 +8,7 @@ describe('TaskRow', () => {
         output,
         instance;
 
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<TaskRow {...props} />);
 

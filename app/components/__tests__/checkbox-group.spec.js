@@ -1,12 +1,12 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { CheckboxGroup } from '../';
 
 describe('CheckboxGroup', () => {
     let globalProps;
 
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<CheckboxGroup {...props} />);
 
@@ -60,8 +60,7 @@ describe('CheckboxGroup', () => {
     });
 
     describe('With error', () => {
-        let output,
-            instance;
+        let output;
 
         beforeAll(() => {
             globalProps.touched = true;
@@ -69,7 +68,6 @@ describe('CheckboxGroup', () => {
 
             const component = shallowRender(globalProps);
             output = component.output;
-            instance = component.instance;
         });
 
         it('renders the error message', () => {

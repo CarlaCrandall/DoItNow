@@ -4,9 +4,9 @@ import tasks from './tasks';
 import navigation from './navigation';
 
 const reducers = combineReducers({
-	navigation,
-	tasks,
-	form: formReducer
+    navigation,
+    tasks,
+    form: formReducer
 });
 
 export default reducers;

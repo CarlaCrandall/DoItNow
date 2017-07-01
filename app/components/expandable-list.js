@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { LayoutAnimation, Text, TouchableHighlight, UIManager, View } from 'react-native';
+import { LayoutAnimation, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { TaskList } from './';
 import { ExpandableListStyles } from '../styles/components';
@@ -33,7 +33,7 @@ export default class ExpandableList extends Component {
             iconName = this.state.expanded ? 'chevron-down' : 'chevron-right';
 
         return (
-            <View style={viewStyles} ref={comp => {this.comp = comp;}}>
+            <View style={viewStyles} ref={(comp) => { this.comp = comp; }}>
                 <Icon.Button
                     name={iconName}
                     size={iconSizes.small}
@@ -57,7 +57,6 @@ export default class ExpandableList extends Component {
                     SWIPEOUT_TASK={this.props.SWIPEOUT_TASK}
                 />
             </View>
-
         );
     }
 }

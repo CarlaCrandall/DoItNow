@@ -1,14 +1,13 @@
 import React from 'react';
-import { LayoutAnimation } from 'react-native';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { DeleteConfirmation } from '../';
-import { TaskForm } from '../task-form.js';
+import { TaskForm } from '../task-form';
 
 describe('TaskForm', () => {
     let globalProps;
 
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<TaskForm {...props} />);
 
@@ -105,13 +104,12 @@ describe('TaskForm', () => {
                 saving: true,
                 listType: 'later',
                 taskName: 'Test task'
-            })
+            });
         });
     });
 
     describe('Edit mode', () => {
-        let output,
-            instance;
+        let instance;
 
         beforeAll(() => {
             DeleteConfirmation.alert = jest.fn();
@@ -125,7 +123,6 @@ describe('TaskForm', () => {
             };
 
             const component = shallowRender(globalProps);
-            output = component.output;
             instance = component.instance;
         });
 

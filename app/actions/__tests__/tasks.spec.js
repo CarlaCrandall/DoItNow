@@ -52,5 +52,4 @@ describe('Task Actions', () => {
             id: defaultId
         });
     });
-
 });

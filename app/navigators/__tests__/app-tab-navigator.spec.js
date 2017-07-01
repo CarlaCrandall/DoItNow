@@ -1,11 +1,10 @@
 import React from 'react';
 import ShallowRenderer from 'react-test-renderer/shallow';
-import * as Utils from '../../../jest/utils.js';
+import * as Utils from '../../../jest/utils';
 import { AppTabNavigator } from '../';
 
 describe('AppTabNavigator', () => {
-
-    const shallowRender = props => {
+    const shallowRender = (props) => {
         const renderer = new ShallowRenderer();
         renderer.render(<AppTabNavigator {...props} />);
 
@@ -29,7 +28,7 @@ describe('AppTabNavigator', () => {
         const
             component = shallowRender().output,
             nowRoute = component.type.routeConfigs.Now,
-            nowTab = nowRoute.navigationOptions({navigation}).tabBarLabel({focused: true});
+            nowTab = nowRoute.navigationOptions({ navigation }).tabBarLabel({ focused: true });
 
         expect(nowTab.props.children.props.children).toEqual(navigation.state.routeName.toUpperCase());
     });
@@ -42,7 +41,7 @@ describe('AppTabNavigator', () => {
         const
             component = shallowRender().output,
             laterRoute = component.type.routeConfigs.Later,
-            laterTab = laterRoute.navigationOptions({navigation}).tabBarLabel({focused: true});
+            laterTab = laterRoute.navigationOptions({ navigation }).tabBarLabel({ focused: true });
 
         expect(laterTab.props.children.props.children).toEqual(navigation.state.routeName.toUpperCase());
     });
@@ -55,7 +54,7 @@ describe('AppTabNavigator', () => {
         const
             component = shallowRender().output,
             somedayRoute = component.type.routeConfigs.Someday,
-            somedayTab = somedayRoute.navigationOptions({navigation}).tabBarLabel({focused: true});
+            somedayTab = somedayRoute.navigationOptions({ navigation }).tabBarLabel({ focused: true });
 
         expect(somedayTab.props.children.props.children).toEqual(navigation.state.routeName.toUpperCase());
     });
